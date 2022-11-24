@@ -1,27 +1,28 @@
 # Bibliotech
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
+## Tecnologias
+- Angular;
+- Angular Material;
+- Firebase.
 
-## Development server
+## História
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+O cliente possui uma biblioteca e tem dificuldade em manter o controle de empréstimo dos livros. Atualmente ele utiliza um caderno onde anota o nome do leitor que levou o livro e qual o livro foi levado. Ele deseja melhorar e automatizar o máximo de tarefas e tornar o empréstimo de livros mais rápido e fácil.
 
-## Code scaffolding
+## Requisitos
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+O usuário/bibliotecário pode visualizar as informações de empréstimos de livros em tabela. Na tabela é esperado encontrar o nome do leitor, o título do livro, a data do empréstimo, o status do empréstimo e a imagem da capa do livro;
 
-## Build
+A tabela deve conter botões para efetuar operações de exclusão e edição. Para que fique mais intuitivo é desejado ícones;
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Ao clicar na capa do livro, deve-se abrir uma caixa de diálogo que mostre todas as informações do livro;
 
-## Running unit tests
+Para facilitar o controle das devolução dos livros, o cliente deseja que na tabela de empréstimos tenha uma informação que indique o status do empréstimo, que pode assumir o valor PENDENTE ou DEVOLVIDO;
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+É desejado uma área que liste os livros registrados. Nessa área deve ter também um formulário para adicionar um novo livro. Um livro deve ter um título, autor, categoria, isbn e uma capa;
 
-## Running end-to-end tests
+O cliente deseja uma página intuitiva para criar um novo empréstimo, informando o nome do leitor, e-mail e telefone, deve informar também o status e o livro, por meio de um campo de seleção. A data de empréstimo deve ser gerada automaticamente, e deve corresponder a data que foi efetuado o empréstimo;
+Para tornar a aplicação segura, é desejado implementar autenticação para acessar os registros e manipular os dados. A autenticação deve ser realizada pela conta Google ou por e-mail e senha.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
