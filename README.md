@@ -1,4 +1,4 @@
-# Bibliotech
+# Bibliotech - Equipe 11
 
 ## Tecnologias
 - Angular;
