@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './shared/material/material.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -19,6 +20,7 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     MaterialModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    BrowserAnimationsModule,
     
   ],
   providers: [],
