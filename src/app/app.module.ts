@@ -9,6 +9,9 @@ import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './views/login/login.component';
 import { NovoCadastroComponent } from './views/novo-cadastro/novo-cadastro.component';
+import { HomeComponent } from './views/home/home.component';
+
+import { NovoEmprestimoComponent } from './views/novo-emprestimo/novo-emprestimo.component';
 
 
 
@@ -16,7 +19,9 @@ import { NovoCadastroComponent } from './views/novo-cadastro/novo-cadastro.compo
   declarations: [
     AppComponent,
     LoginComponent,
-    NovoCadastroComponent
+    NovoCadastroComponent,
+    HomeComponent,
+    NovoEmprestimoComponent
     
   ],
   imports: [
