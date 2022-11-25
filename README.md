@@ -1,4 +1,4 @@
-# Bibliotech - Equipe 11
+# Atividade Bibliotech - Equipe 11 - SoulCode Academy
 
 ## Tecnologias
 - Angular;
