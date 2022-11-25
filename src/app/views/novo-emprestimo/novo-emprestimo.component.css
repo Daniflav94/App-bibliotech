@@ -1,0 +1,17 @@
+.forms{
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+    justify-content: center;
+}
+.form-container{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 79vh;
+}
+.form-container label{
+    font-size: 25px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
