@@ -7,12 +7,16 @@ import { MaterialModule } from './shared/material/material.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './views/login/login.component';
+import { NovoCadastroComponent } from './views/novo-cadastro/novo-cadastro.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    NovoCadastroComponent
     
   ],
   imports: [
