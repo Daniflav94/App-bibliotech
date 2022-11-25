@@ -11,6 +11,7 @@ import { LoginComponent } from './views/login/login.component';
 import { NovoCadastroComponent } from './views/novo-cadastro/novo-cadastro.component';
 import { HomeComponent } from './views/home/home.component';
 
+import { NovoEmprestimoComponent } from './views/novo-emprestimo/novo-emprestimo.component';
 
 
 
@@ -19,7 +20,8 @@ import { HomeComponent } from './views/home/home.component';
     AppComponent,
     LoginComponent,
     NovoCadastroComponent,
-    HomeComponent
+    HomeComponent,
+    NovoEmprestimoComponent
     
   ],
   imports: [
