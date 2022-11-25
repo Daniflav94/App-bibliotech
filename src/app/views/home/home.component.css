@@ -1,0 +1,27 @@
+.home-container {  
+    height: 100%;
+    background-color: #E6E6E6;
+    background-image: url("/assets/images/livro-home.jpg");
+    background-size: 100%;
+    background-repeat:no-repeat;
+    background-position: top;   
+}
+
+.home-container h1 {
+    width: 30%;
+    line-height: 70px;
+    font-size: 65px;
+    position: absolute;
+    left: 8%;
+    top: 30%;
+    color: white;
+    font-weight: bold;
+}
+
+.home-container button {
+    left: 12%;
+    top: 70%;
+    width: 13%;
+    height: 60px;
+    font-size: 25px;
+}
