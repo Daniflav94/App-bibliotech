@@ -40,9 +40,11 @@ form{
 }
 
 .img-container{
-    background-color: #1565C0;
+    background: rgb(66,165,245);
+    background: linear-gradient(114deg, rgba(66,165,245,1) 19%, rgba(66,165,245,1) 48%, rgba(107,192,250,1) 69%, rgba(107,192,250,1) 90%);
     width: 50%;
     height: 100%;
+    filter: drop-shadow(0 10px 3px rgba(25, 25, 25, 0.775))
 }
 
 .btn-google{
@@ -66,7 +68,7 @@ form{
 
 .btn{
     width: 100%;
-    background-color: #1565C0;
+    background-color: #42A5F5;
     color: #FFFFFF;
     height: 35px;
     border-radius: 5px;
