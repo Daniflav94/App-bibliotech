@@ -3,14 +3,18 @@
         <div class="form">
             <h1>Login</h1>
             <h4>Bem-vindo! Faça o login em sua conta</h4>
-            <button class="btn-google">
+            <button class="btn-google" (click)="loginPeloGoogle()">
                 <img src="../../../assets/icons/icons8-google-logo.svg" width="20px">
                 <p class="titulo-google">Fazer login com o Google</p>
             </button>
-            <form>
-                <input type="email" placeholder="E-mail">
-                <input type="password" placeholder="Senha">
-                <button class="btn" type="submit">Entrar</button>
+            <form [formGroup]="credenciais" (ngSubmit)="loginEmailAndSenha()">
+                <input type="email" placeholder="E-mail" formControlName ="email">
+                <span *ngIf="credenciais.get('email')?.errors?.['email'] && credenciais.get('email')?.touched" 
+                [ngStyle]="{color:'red',fontSize:'12px'}">
+                *Usuario invalido
+            </span>
+                <input type="password" placeholder="Senha" formControlName="senha">
+                <button class="btn" type="submit" routerLink="/dashboard">Entrar</button>
             </form>
             <span>Ainda não é cadastrado? <a routerLink="/cadastrar">Cadastre-se</a></span>
         </div>

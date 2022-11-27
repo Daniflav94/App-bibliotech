@@ -3,14 +3,22 @@
         <div class="form">
             <h1>Cadastre-se</h1>
             <h4>Faça seu cadastro para utilizar nossos serviços!</h4>
-            <button class="btn-google">
+            <button class="btn-google" (click)="loginPeloGoogle()">
                 <img src="../../../assets/icons/icons8-google-logo.svg" width="20px">
                 <p class="titulo-google">Fazer login com o Google</p>
             </button>
-            <form>
-                <input type="email" placeholder="E-mail">
-                <input type="password" placeholder="Senha">
-                <button class="btn" type="submit">Cadastrar</button>
+            <form [formGroup]="credenciais"(ngSubmit)="createNewUser()">
+                <input type="email" placeholder="E-mail" formControlName = "email">
+                <span *ngIf="credenciais.get('email')?.errors?.['email'] && credenciais.get('email')?.touched" 
+                [ngStyle]="{color:'red',fontSize:'12px'}">
+                *Usuario invalido
+            </span>
+                <input type="password" placeholder="Senha" formControlName="senha">
+                <span *ngIf="credenciais.get('senha')?.errors?.['minlength'] && credenciais.get('senha')?.touched" 
+                [ngStyle]="{color:'red',fontSize:'12px'}">
+                * Mínimo de 6 caracteres
+            </span>
+                <button class="btn" type="submit" >Cadastrar</button>
             </form>
             <span><a routerLink="/login">Voltar para Login</a></span>
         </div>

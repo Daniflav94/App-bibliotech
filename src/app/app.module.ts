@@ -13,6 +13,7 @@ import { HomeComponent } from './views/home/home.component';
 import { NovoEmprestimoComponent } from './views/novo-emprestimo/novo-emprestimo.component';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { ReactiveFormsModule } from '@angular/forms';
+import {  AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 
 
@@ -32,6 +33,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     BrowserAnimationsModule,
     AngularFirestoreModule ,
+    AngularFireAuthModule,
     ReactiveFormsModule
     
   ],
