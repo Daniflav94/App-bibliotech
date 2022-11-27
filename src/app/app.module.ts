@@ -11,9 +11,11 @@ import { LoginComponent } from './views/login/login.component';
 import { NovoCadastroComponent } from './views/novo-cadastro/novo-cadastro.component';
 import { HomeComponent } from './views/home/home.component';
 import { NovoEmprestimoComponent } from './views/novo-emprestimo/novo-emprestimo.component';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { ReactiveFormsModule } from '@angular/forms';
 import {  AngularFireAuthModule } from '@angular/fire/compat/auth';
+
 
 
 
@@ -23,7 +25,8 @@ import {  AngularFireAuthModule } from '@angular/fire/compat/auth';
     LoginComponent,
     NovoCadastroComponent,
     HomeComponent,
-    NovoEmprestimoComponent
+    NovoEmprestimoComponent,
+    DashboardComponent
     
   ],
   imports: [
