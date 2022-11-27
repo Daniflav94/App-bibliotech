@@ -15,3 +15,17 @@
     margin-bottom: 15px;
     font-weight: 500;
 }
+
+.botoes{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-form{
+    width: 48%;
+    transition: 0.4s;
+}
+
+.btn-form:hover{
+    transform: scale(1.1);
+}
