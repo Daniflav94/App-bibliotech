@@ -10,8 +10,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './views/login/login.component';
 import { NovoCadastroComponent } from './views/novo-cadastro/novo-cadastro.component';
 import { HomeComponent } from './views/home/home.component';
-
 import { NovoEmprestimoComponent } from './views/novo-emprestimo/novo-emprestimo.component';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -30,6 +31,8 @@ import { NovoEmprestimoComponent } from './views/novo-emprestimo/novo-emprestimo
     MaterialModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     BrowserAnimationsModule,
+    AngularFirestoreModule ,
+    ReactiveFormsModule
     
   ],
   providers: [],
