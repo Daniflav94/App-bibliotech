@@ -46,6 +46,10 @@ this.credenciais = this.fb.group({
       (credentials)=>{
         this.notificacao.Showmessage("Bem vinda(a)")
         this.router.navigate(["/login"])
+        const usuario = credentials.user;
+        localStorage.setItem("uidUser",usuario.uid)
+
+         
       
         
       }
