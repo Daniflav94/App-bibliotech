@@ -17,6 +17,8 @@ import { EditarEmprestimoComponent } from './views/editar-emprestimo/editar-empr
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { NovoCadastroComponent } from './views/novo-cadastro/novo-cadastro.component';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { LivrosComponent } from './views/livros/livros.component';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     NovoEmprestimoComponent,
     EditarEmprestimoComponent,
     DashboardComponent,
-    NovoCadastroComponent
+    NovoCadastroComponent,
+    LivrosComponent
    ],
   imports: [
     BrowserModule,
