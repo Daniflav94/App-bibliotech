@@ -15,6 +15,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditarEmprestimoComponent } from './views/editar-emprestimo/editar-emprestimo.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
+import { NovoCadastroComponent } from './views/novo-cadastro/novo-cadastro.component';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { DashboardComponent } from './views/dashboard/dashboard.component';
     LoginComponent,
     NovoEmprestimoComponent,
     EditarEmprestimoComponent,
-    DashboardComponent
+    DashboardComponent,
+    NovoCadastroComponent
    ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { DashboardComponent } from './views/dashboard/dashboard.component';
     BrowserAnimationsModule,
     AngularFirestoreModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
