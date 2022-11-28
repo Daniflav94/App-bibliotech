@@ -1,3 +1,4 @@
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -14,6 +15,7 @@ import { User } from 'src/app/models/user';
 export class LoginComponent implements OnInit {
  public credenciais!:FormGroup
   constructor(
+   
     private router:Router,
     private fb :FormBuilder,
     private autenticacao:AuthService,
@@ -44,6 +46,8 @@ this.credenciais = this.fb.group({
       (credentials)=>{
         this.notificacao.Showmessage("Bem vinda(a)")
         this.router.navigate(["/login"])
+      
+        
       }
     )
 

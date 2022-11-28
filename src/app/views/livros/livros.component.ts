@@ -1,4 +1,9 @@
+import { Router } from '@angular/router';
+import { Livro } from './../../models/livro';
 import { Component, OnInit } from '@angular/core';
+import { NotificationService } from 'src/app/service/notification.service';
+import { LivrosService } from 'src/app/service/livros.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-livros',
@@ -7,9 +12,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LivrosComponent implements OnInit {
 
-  constructor() { }
+  newBook!:FormGroup
+  constructor(
+    private notificacao:NotificationService,
+    private colecaoLivros:LivrosService,
+    private roter:Router,
+    private fb :FormBuilder
+  ) { 
+    this.newBook = fb.group({
+     
+      titulo:['',[Validators.required,Validators.maxLength(30)]],
+      categoria:['',[Validators.required]],
+      autor:['',[Validators.required]],
+      isbn:['',[Validators.required]],
+      capa:[''],
+    })
+  }
 
   ngOnInit(): void {
   }
 
+adicionarNovoLivro(){
+  if(this.newBook.valid){
+    const novoLivro:Livro = this.newBook.value
+    this.colecaoLivros.criarListaDeLivros(novoLivro).subscribe(
+      (livro)=>{
+        this.notificacao.Showmessage("livro novo cadastrado com sucesso")
+        console.log(livro)
+      }
+    )
+  }else{
+    this.notificacao.Showmessage("erro ao cadastrar ")
+  }
+
+
+}
 }
