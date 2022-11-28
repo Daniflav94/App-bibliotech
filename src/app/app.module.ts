@@ -19,6 +19,7 @@ import { NovoCadastroComponent } from './views/novo-cadastro/novo-cadastro.compo
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { LivrosComponent } from './views/livros/livros.component';
 import { DetailsComponent } from './componente/details/details.component';
+import { AdicionarLivroComponent } from './views/adicionar-livro/adicionar-livro.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { DetailsComponent } from './componente/details/details.component';
     DashboardComponent,
     NovoCadastroComponent,
     LivrosComponent,
-    DetailsComponent
+    DetailsComponent,
+    AdicionarLivroComponent
    ],
   imports: [
     BrowserModule,

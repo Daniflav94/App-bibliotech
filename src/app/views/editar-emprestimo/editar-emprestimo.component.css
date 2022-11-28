@@ -11,9 +11,11 @@
   height: 79vh;
 }
 .form-container label{
-  font-size: 25px;
-  margin-bottom: 15px;
-  font-weight: 500;
+  font-size: 30px;
+    font-weight: 600;
+    color:#4c9fcf;
+    letter-spacing: 1.2px;
+    margin: 20px 0;
 }
 
 .botoes{
