@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
 
   displayedColumns = ['leitor', 'livro', 'dataEmprestimo', 'status', 'excluir', 'editar', 'capa'];
-  dataSource = [];
+  dataSource  = [];
 
   constructor() { /* TODO document why this constructor is empty */  }
 

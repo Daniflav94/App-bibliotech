@@ -1,4 +1,5 @@
 export interface Emprestimo{
+  
   id?: string;
   leitor: string;
   email: string;
