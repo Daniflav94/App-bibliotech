@@ -4,7 +4,7 @@ import { NotificationService } from './notification.service';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Injectable } from '@angular/core';
 import {   EMPTY, from,  Observable } from 'rxjs';
-import { catchError } from 'rxjs/operators'
+import { catchError, map } from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +27,33 @@ export class LivrosService {
         return EMPTY
         })
       );
+    }
+    public findAll(): Observable<any> {
+      const promise = this.firestore.collection("livros").get();
+      return from(promise).pipe(
+        map((response: any) => {
+          return response.docs.map((doc: any) => {
+            const livro: Livro = doc.data() as Livro;
+            livro.id = doc.id;
+            return livro;
+          })
+        }),
+        catchError(error => {
+          this.notificacao.Showmessage("Erro ao buscar dados.");
+          console.error(error);
+          return EMPTY;
+        })
+      );
+    }
+    deleteLivro(id:string):Observable<any>{
+      const promise = this.firestore.collection("livros").doc(id).delete()
+      return from(promise).pipe(
+        catchError(error=>{
+          this.notificacao.Showmessage("erro ao excluir")
+          console.error(error)
+          return EMPTY
+        })
+      )
     }
 
 }

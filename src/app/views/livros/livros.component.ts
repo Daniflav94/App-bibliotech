@@ -28,8 +28,13 @@ export class LivrosComponent implements OnInit {
       capa:[''],
     })
   }
+  displayedColumns = ['titulo', 'categoria', 'autor', 'isbn', 'excluir'];
+  dataSource:Livro[] = [];
+
+
 
   ngOnInit(): void {
+    this.initializerTable()
   }
 
 adicionarNovoLivro(){
@@ -45,6 +50,21 @@ adicionarNovoLivro(){
     this.notificacao.Showmessage("erro ao cadastrar ")
   }
 
+}
 
+initializerTable(){
+  this.colecaoLivros.findAll().subscribe(
+    (livros)=>{
+      this.dataSource = livros
+    }
+  )
+}
+excluirLivro(id:string){
+this.colecaoLivros.deleteLivro(id).subscribe(
+  (livro)=>{
+    this.notificacao.Showmessage(`livro ${livro.titulo} excluido com sucesso`)
+    this.initializerTable()
+  }
+)
 }
 }

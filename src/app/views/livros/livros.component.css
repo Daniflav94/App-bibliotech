@@ -1,0 +1,28 @@
+.container {
+    width: clamp(300px, 80%, 1400px);
+    margin: 0 auto;
+    padding-top: 40px;
+}
+
+table {
+    width: 100%;
+}
+
+.table-container {
+    height: 70vh;
+    overflow: auto;  
+}
+
+.container h1{
+    font-size: 30px;
+    font-weight: 600;
+    color:#4c9fcf;
+    letter-spacing: 1.2px;
+    margin: 20px 0;
+}
+
+.btn-new {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+}
