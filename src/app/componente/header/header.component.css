@@ -1,3 +1,11 @@
+mat-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -9,14 +17,10 @@
    text-decoration: none;
 }
 
-.header .foto {
-  max-height: 32px;
-}
-
 .header .title-bibliotech {
-  padding-left: 25px;
+  padding-right: 10px;
 }
 
 .header .title-bibliotech i {
-  padding-right: 25px;
+  margin-left: 10px;
 }
