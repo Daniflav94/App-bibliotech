@@ -1,13 +1,9 @@
-import { DetailsComponent } from './../../components/details/details.component';
-import { NotificationService } from './../../services/notification.service';
-import { CollaboratorService } from './../../services/collaborator.service';
-
-
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
-import { Emprestimo } from './src/app/models/emprestimo';
-
+import { EmprestimosService } from './../../service/emprestimos.service';
+import { Emprestimo } from './../../models/emprestimo';
+import { NotificationService } from 'src/app/service/notification.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,59 +13,36 @@ import { Emprestimo } from './src/app/models/emprestimo';
 export class DashboardComponent implements OnInit {
 
   displayedColumns = ['leitor', 'livro', 'dataEmprestimo', 'status', 'excluir', 'editar', 'capa'];
-  dataSource:  = [];
-
-  constructor() { /* TODO document why this constructor is empty */  }
-
-  ngOnInit(): void {
-    // TODO document why this method 'ngOnInit' is empty
-
-  }
-
-}
-
-/* Fazer o método para listar os empréstimos no Service Empréstimos,
-/*criar também o método de delete. Implementar todos os métodos no TS do Dashboard
-*/
-
-
-@Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
-})
-export class DashboardComponent implements OnInit {
-
-  displayedColumns = ['foto', 'nome', 'email', 'cpf', 'cargo', 'setor', 'excluir', 'editar', 'detalhes'];
-  dataSource: Collaborator[] = [];
+  dataSource: Emprestimo[] = [];
 
   constructor(
-    private collaboratorService: CollaboratorService,
+    private emprestimoService: EmprestimosService,
     private notification: NotificationService,
     private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
     this.initializeTable();
+
   }
 
   private initializeTable(): void {
-    this.collaboratorService.findAll().subscribe(collaborators => {
-      this.dataSource = collaborators;
+    this.emprestimoService.findAll().subscribe(emprestimo => {
+      this.dataSource = emprestimo;
     });
   }
 
-  public deleteCollaborator(id: string): void {
-    this.collaboratorService.deleteCollaborator(id).subscribe(response => {
-      this.notification.showMessage("Apagado.");
+  public deleteEmprestimo(id: string): void {
+    this.emprestimoService.deleteEmprestimo(id)..subscribe(response => {
+      this.notification.Showmessage ("Emprestimo apagado");
       this.initializeTable();
     });
   }
 
-  public openDetails(collaborator: Collaborator): void {
+  public openDetails(emprestimo: Emprestimo): void {
     this.dialog.open(DetailsComponent, {
       width: "400px",
-      data: collaborator
+      data: emprestimo
     });
   }
 }
