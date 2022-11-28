@@ -1,4 +1,4 @@
-import { NovoCadastroComponent } from './views/novo-cadastro/novo-cadastro/novo-cadastro.component';
+import { NovoCadastroComponent } from './views/novo-cadastro/novo-cadastro.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
