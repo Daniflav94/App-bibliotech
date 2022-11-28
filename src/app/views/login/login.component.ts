@@ -35,7 +35,7 @@ this.credenciais = this.fb.group({
     this.autenticacao.LoginPeloGoogle().subscribe(
       (credentials)=>{
         this.notificacao.Showmessage("Bem vindo(a)")
-        this.router.navigate(["/login"])
+        this.router.navigate(["/home"])
       }
     )
 
@@ -45,7 +45,7 @@ this.credenciais = this.fb.group({
     this.autenticacao.LoginEmailAndSenha(user).subscribe(
       (credentials)=>{
         this.notificacao.Showmessage("Bem vinda(a)")
-        this.router.navigate(["/login"])
+        this.router.navigate(["/home"])
         const usuario = credentials.user;
         localStorage.setItem("uidUser",usuario.uid)
 

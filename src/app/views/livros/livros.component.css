@@ -1,4 +1,4 @@
-.container {
+.container-livros {
     width: clamp(300px, 80%, 1400px);
     margin: 0 auto;
     padding-top: 40px;
@@ -6,6 +6,13 @@
 
 table {
     width: 100%;
+}
+
+#img{
+    background-image: url("/assets/images/menina-livros.png");
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: 100% 100%;
 }
 
 .table-container {
@@ -18,11 +25,11 @@ table {
     font-weight: 600;
     color:#4c9fcf;
     letter-spacing: 1.2px;
-    margin: 20px 0;
+    margin-bottom: 30px;
 }
 
 .btn-new {
     position: absolute;
     right: 30px;
-    bottom: 30px;
+    bottom: 20px;
 }

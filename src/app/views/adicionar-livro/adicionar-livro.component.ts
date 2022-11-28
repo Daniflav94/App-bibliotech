@@ -21,7 +21,7 @@ export class AdicionarLivroComponent implements OnInit {
   ) {
     this.formLivro = fb.group({
       titulo: ['', [Validators.required]],
-      categoria: ['', [Validators.required, Validators.email]],
+      categoria: ['', [Validators.required]],
       capa: ['', [Validators.required]],
       autor: ['', [Validators.required]],
       isbn: ['', [Validators.required]]
