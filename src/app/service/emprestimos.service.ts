@@ -12,6 +12,7 @@ export class EmprestimosService {
     private firestore: AngularFirestore
   ) { }
 
+
   public criarEmprestimo(emprestimo: Emprestimo): Observable<any> {
     const promise = this.firestore.collection("emprestimos").add(emprestimo)
     return from(promise)
