@@ -1,9 +1,9 @@
-import { NovoCadastroComponent } from './views/novo-cadastro/novo-cadastro/novo-cadastro.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HomeComponent } from './views/home/home.component';
 import { LoginComponent  } from './views/login/login.component';
+import { NovoCadastroComponent } from './views/novo-cadastro/novo-cadastro.component';
 import { NovoEmprestimoComponent } from './views/novo-emprestimo/novo-emprestimo.component';
 import { EditarEmprestimoComponent } from './views/editar-emprestimo/editar-emprestimo.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';

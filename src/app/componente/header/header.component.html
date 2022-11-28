@@ -1,16 +1,17 @@
 <mat-toolbar class="header mat-elevation-z4">
   <span>
     <a>
-      <img class="foto" src="assets/images/img-header.jpeg" alt="Foto Bibliotech"/>
+      BIBLIOTECH
     </a>
-    </span>
-    <span class="title-bibliotech">
-      <a>
-        <i class="material-icons">
-          home
-        </i>
-        BIBLIOTECH
-      </a>
-    </span>
-  <mat-menu #menu="matMenu"> </mat-menu>
+  </span>
+  <span class="title-bibliotech">
+    <a>
+      <i class="material-icons">menu</i>
+    </a>
+  </span>
+  <mat-menu #menu="matMenu">
+    <a mat-menu-item routerLink="/home">Home</a>
+    <a mat-menu-item routerLink="/dashboard">Painel de Controle</a>
+    <a mat-menu-item id="logout" (click)="logout()">Sair <i class="material-icons">logout</i></a>
+</mat-menu>
 </mat-toolbar>
