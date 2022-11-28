@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  align-items: center;
+}
+
+.header a {
+   display: flex;
+   align-items: center;
+   text-decoration: none;
+}
+
+.header .foto {
+  max-height: 32px;
+}
+
+.header .title-bibliotech {
+  padding-left: 25px;
+}
+
+.header .title-bibliotech i {
+  padding-right: 25px;
+}
