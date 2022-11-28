@@ -1,0 +1,33 @@
+.forms{
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+    justify-content: center;
+}
+.form-container{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 79vh;
+}
+.form-container label{
+    font-size: 30px;
+    font-weight: 600;
+    color:#4c9fcf;
+    letter-spacing: 1.2px;
+    margin: 20px 0;
+}
+
+.botoes{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-form{
+    width: 48%;
+    transition: 0.4s;
+}
+
+.btn-form:hover{
+    transform: scale(1.1);
+}
