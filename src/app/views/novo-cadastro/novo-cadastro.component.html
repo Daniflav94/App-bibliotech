@@ -9,12 +9,12 @@
             </button>
             <form [formGroup]="credenciais"(ngSubmit)="createNewUser()">
                 <input type="email" placeholder="E-mail" formControlName = "email">
-                <span *ngIf="credenciais.get('email')?.errors?.['email'] && credenciais.get('email')?.touched" 
+                <span *ngIf="credenciais.get('email')?.errors?.['email'] && credenciais.get('email')?.touched"
                 [ngStyle]="{color:'red',fontSize:'12px'}">
                 *Usuario invalido
             </span>
                 <input type="password" placeholder="Senha" formControlName="senha">
-                <span *ngIf="credenciais.get('senha')?.errors?.['minlength'] && credenciais.get('senha')?.touched" 
+                <span *ngIf="credenciais.get('senha')?.errors?.['minlength'] && credenciais.get('senha')?.touched"
                 [ngStyle]="{color:'red',fontSize:'12px'}">
                 * Mínimo de 6 caracteres
             </span>
@@ -22,7 +22,6 @@
             </form>
             <span><a routerLink="/login">Voltar para Login</a></span>
         </div>
-
     </div>
     <div class="img-container">
         <img src="assets/images/img-login.png">
