@@ -1,9 +1,9 @@
-
 export interface Emprestimo{
-    leitor: string;
-    email: string;
-    telefone: string;
-    status: string;
-    livro: string;
-    dataEmprestimo?: string;
+  id?: string;
+  leitor: string;
+  email: string;
+  telefone: string;
+  status: string;
+  livro: string;
+  dataEmprestimo?: string;
 }

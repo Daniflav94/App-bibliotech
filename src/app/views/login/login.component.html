@@ -9,7 +9,7 @@
             </button>
             <form [formGroup]="credenciais" (ngSubmit)="loginEmailAndSenha()">
                 <input type="email" placeholder="E-mail" formControlName ="email">
-                <span *ngIf="credenciais.get('email')?.errors?.['email'] && credenciais.get('email')?.touched" 
+                <span *ngIf="credenciais.get('email')?.errors?.['email'] && credenciais.get('email')?.touched"
                 [ngStyle]="{color:'red',fontSize:'12px'}">
                 *Usuario invalido
             </span>
@@ -18,7 +18,6 @@
             </form>
             <span>Ainda não é cadastrado? <a routerLink="/cadastrar">Cadastre-se</a></span>
         </div>
-
     </div>
     <div class="img-container">
         <img src="assets/images/img-login.png">

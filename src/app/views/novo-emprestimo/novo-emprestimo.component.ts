@@ -23,7 +23,7 @@ export class NovoEmprestimoComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       telefone: ['', [Validators.required]],
       status: ['', [Validators.required]],
-      livro: ['']
+      livro: ['', [Validators.required]]
     }) 
 
   }  
