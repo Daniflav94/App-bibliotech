@@ -11,16 +11,25 @@ mat-toolbar {
   align-items: center;
 }
 
-.header a {
+.header .title {
+  padding-right: 10px;
+}
+
+.header .title i {
+  margin-left: 10px;
+}
+
+.header .button {
    display: flex;
    align-items: center;
    text-decoration: none;
 }
 
-.header .title-bibliotech {
-  padding-right: 10px;
+#logout {
+  display: flex;
+  align-items: center;
 }
 
-.header .title-bibliotech i {
+#logout i {
   margin-left: 10px;
 }
