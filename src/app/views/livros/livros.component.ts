@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LivrosComponent implements OnInit {
 
+  displayedColumns = ['titulo', 'categoria', 'autor', 'isbn', 'excluir'];
+  dataSource = [];
+
   constructor() { }
 
   ngOnInit(): void {
