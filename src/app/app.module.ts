@@ -15,6 +15,7 @@ import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { ReactiveFormsModule } from '@angular/forms';
 import {  AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { LivrosComponent } from './views/livros/livros.component';
 
 
 
@@ -26,7 +27,8 @@ import {  AngularFireAuthModule } from '@angular/fire/compat/auth';
     NovoCadastroComponent,
     HomeComponent,
     NovoEmprestimoComponent,
-    DashboardComponent
+    DashboardComponent,
+    LivrosComponent
     
   ],
   imports: [
