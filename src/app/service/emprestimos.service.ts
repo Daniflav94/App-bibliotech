@@ -14,6 +14,7 @@ export class EmprestimosService {
     private notificationService: NotificationService
   ) { }
 
+
   public criarEmprestimo(emprestimo: Emprestimo): Observable<any> {
     const promise = this.firestore.collection("emprestimos").add(emprestimo)
     return from(promise)

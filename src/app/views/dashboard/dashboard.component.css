@@ -1,7 +1,15 @@
 .container {
     width: clamp(300px, 90%, 1400px);
     margin: 0 auto;
-    padding-top: 90px;
+    padding-top: 40px;
+}
+
+.container h1{
+    font-size: 30px;
+    font-weight: 600;
+    color:#4c9fcf;
+    letter-spacing: 1.2px;
+    margin: 20px 0;
 }
 
 #img { 
@@ -30,5 +38,4 @@ table {
     position: absolute;
     right: 30px;
     bottom: 30px;
-    background-color: #517fdc;
 }
