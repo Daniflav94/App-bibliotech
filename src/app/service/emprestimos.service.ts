@@ -16,7 +16,10 @@ export class EmprestimosService {
 
 
   public criarEmprestimo(emprestimo: Emprestimo): Observable<any> {
-    const promise = this.firestore.collection("emprestimos").add(emprestimo)
+    const promise = this.firestore.collection("emprestimos").add({
+      uidUser:localStorage.getItem('uidUser'),
+      ...emprestimo
+    })
     return from(promise)
   }
 

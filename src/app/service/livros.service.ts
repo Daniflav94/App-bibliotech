@@ -29,7 +29,8 @@ export class LivrosService {
       );
     }
     public findAll(): Observable<any> {
-      const promise = this.firestore.collection("livros").get();
+      const uidUser = localStorage.getItem('uidUser')
+      const promise = this.firestore.collection("livros",ref => ref.where('uidUser','==',uidUser)).get()
       return from(promise).pipe(
         map((response: any) => {
           return response.docs.map((doc: any) => {
