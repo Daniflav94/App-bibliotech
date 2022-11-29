@@ -36,6 +36,8 @@ this.credenciais = this.fb.group({
       (credentials)=>{
         this.notificacao.Showmessage("Bem vindo(a)")
         this.router.navigate(["/home"])
+        const usuario = credentials.user;
+        localStorage.setItem("uidUser",usuario.uid)
       }
     )
 
@@ -47,11 +49,7 @@ this.credenciais = this.fb.group({
         this.notificacao.Showmessage("Bem vinda(a)")
         this.router.navigate(["/home"])
         const usuario = credentials.user;
-        localStorage.setItem("uidUser",usuario.uid)
-
-         
-      
-        
+        localStorage.setItem("uidUser",usuario.uid) 
       }
     )
 

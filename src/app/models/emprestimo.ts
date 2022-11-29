@@ -4,6 +4,13 @@ export interface Emprestimo{
   email: string;
   telefone: string;
   status: string;
-  livro: string;
+  livro: {
+    autor: string,
+    capa: string,
+    categoria: string,
+    id: string,
+    isbn: string,
+    titulo: string
+  };
   dataEmprestimo?: string;
 }
