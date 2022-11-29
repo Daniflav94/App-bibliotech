@@ -5,26 +5,26 @@
       <h1>Editar Empréstimo</h1>
     <mat-form-field appearance="outline">
       <mat-label>Leitor</mat-label>
-      <input type="text" matInput formControlName="leitor">
+      <input type="text" name="leitor" matInput [(ngModel)]="emprestimo.leitor">
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
-      <input type="email" matInput formControlName="email">
+      <input type="email" matInput name="email" [(ngModel)]="emprestimo.email">
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Telefone</mat-label>
-      <input type="tel" matInput formControlName="telefone">
+      <input type="tel" matInput name="telefone" [(ngModel)]="emprestimo.telefone">
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>Status</mat-label>
-      <mat-select formControlName="status">
+      <mat-label>Status atual: {{emprestimo.status}}</mat-label>
+      <mat-select  >
           <mat-option value="pendente">PENDENTE</mat-option>
           <mat-option value="devolvido">DEVOLVIDO</mat-option>
         </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>Livro</mat-label>
-      <mat-select formControlName="livro">
+      <mat-label>Livro atual : {{emprestimo.livro.titulo}}</mat-label>
+      <mat-select>
           <mat-option [value]="livro" *ngFor="let livro of listaLivros">{{livro.titulo}}</mat-option>
         </mat-select>
     </mat-form-field>

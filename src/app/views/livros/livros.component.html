@@ -1,4 +1,3 @@
- 
 <app-header></app-header>
 <section class="container">
     <div class="container-livros">
@@ -7,27 +6,27 @@
         <section id="img" class="table-container  mat-elevation-z8" tabindex="0">
             <table mat-table [dataSource]="dataSource">
                 <ng-container matColumnDef="titulo">
-                    <th mat-header-cell *matHeaderCellDef>Titulo</th>
+                    <th class="th" mat-header-cell *matHeaderCellDef><b>Titulo</b></th>
                     <td mat-cell *matCellDef="let bibliotech">{{bibliotech.titulo}}</td>
                 </ng-container>
 
                 <ng-container matColumnDef="autor">
-                    <th mat-header-cell *matHeaderCellDef>Autor</th>
+                    <th class="th" mat-header-cell *matHeaderCellDef><b>Autor</b></th>
                     <td mat-cell *matCellDef="let bibliotech">{{bibliotech.autor}}</td>
                 </ng-container>
     
                 <ng-container matColumnDef="categoria">
-                    <th mat-header-cell *matHeaderCellDef>Categoria</th>
+                    <th class="th" mat-header-cell *matHeaderCellDef><b>Categoria</b></th>
                     <td mat-cell *matCellDef="let bibliotech">{{bibliotech.categoria}} </td>
                 </ng-container>
     
                 <ng-container matColumnDef="isbn">
-                    <th mat-header-cell *matHeaderCellDef>ISBN</th>
+                    <th class="th" mat-header-cell *matHeaderCellDef><b>ISBN</b></th>
                     <td mat-cell *matCellDef="let bibliotech">{{bibliotech.isbn}}</td>
                 </ng-container>
     
                 <ng-container matColumnDef="excluir">
-                    <th mat-header-cell *matHeaderCellDef>Excluir</th>
+                    <th class="th" mat-header-cell *matHeaderCellDef><b>Excluir</b></th>
                     <td mat-cell *matCellDef="let bibliotech">
                         <button mat-icon-button (click)="excluirLivro(bibliotech.id)" >
                         <i class="material-icons">delete</i>

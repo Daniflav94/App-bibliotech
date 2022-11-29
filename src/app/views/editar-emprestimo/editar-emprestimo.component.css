@@ -4,6 +4,11 @@
   width: 50vw;
   justify-content: center;
 }
+
+.container{
+  margin: 0;
+}
+
 .form-container{
   display: flex;
   justify-content: center;

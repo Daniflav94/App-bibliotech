@@ -33,7 +33,7 @@ export class AdicionarLivroComponent implements OnInit {
 
   public formLivro: FormGroup
   isLoading: boolean = false
-  capaLivro: string = ''
+  capa: string = ''
 
   ngOnInit(): void {
   }
@@ -41,6 +41,7 @@ export class AdicionarLivroComponent implements OnInit {
   public criarNovoLivro(): void{
     if(this.formLivro.valid){
       const livro: Livro = this.formLivro.value
+      livro.capa = this.capa
       this.livrosService.criarListaDeLivros(livro).subscribe(
         (resposta) => {
           this.notificacao.Showmessage("Livro inserido no acervo com sucesso!")
@@ -59,7 +60,7 @@ export class AdicionarLivroComponent implements OnInit {
     this.uploadService.uploadCapa(file).subscribe(resposta => {
       this.isLoading = false // nesse ponto do código a imagem já foi carregada, então a barra de progresso deverá sumir
       resposta.ref.getDownloadURL().then((capa: string) => {  // getDownloadUrl retorna uma promessa, then() pega o dado da promessa
-        this.capaLivro = capa
+        this.capa = capa
       })  
     })     
   }

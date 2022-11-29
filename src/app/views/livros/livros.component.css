@@ -5,7 +5,11 @@
 .container-livros {
     width: clamp(300px, 80%, 1400px);
     margin: 0 auto;
-    padding-top: 80px;
+    padding-top: 105px;
+}
+
+.th {
+    color: black;
 }
 
 table {

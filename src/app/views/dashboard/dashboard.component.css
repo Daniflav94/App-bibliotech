@@ -6,14 +6,17 @@ table {
     width: 100%;
     font-weight: 600;
     opacity: 0.6;
+    
 }
 
-
+.th {
+color: black;
+}
 
 .container-dash {
     width: clamp(300px, 80%, 1400px);
     margin: 0 auto;
-    padding-top: 80px;
+    padding-top: 105px;
     
     
 }
@@ -46,9 +49,9 @@ table {
 }
 
 .avatar {
-    width: 100px;
-    height: 100px;
-    border-radius: 50px;
+    width: 75px;
+    height: 110px;
+
 }
 
 .btn-new {
@@ -61,6 +64,3 @@ table {
 img {
     cursor: pointer;
 }
-
-
-

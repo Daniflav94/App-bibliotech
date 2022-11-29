@@ -43,7 +43,7 @@ export class EmprestimosService {
   }
 
   public editarEmprestimoById(id: string): Observable<any> {
-    const promise = this.firestore.collection("emprestimo").doc(id).get()
+    const promise = this.firestore.collection("emprestimos").doc(id).get()
     return from(promise).pipe(
       map(
         doc =>{
