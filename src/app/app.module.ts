@@ -18,6 +18,7 @@ import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { NovoCadastroComponent } from './views/novo-cadastro/novo-cadastro.component';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { LivrosComponent } from './views/livros/livros.component';
+import { DetailsComponent } from './componente/details/details.component';
 import { AdicionarLivroComponent } from './views/adicionar-livro/adicionar-livro.component';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
@@ -33,6 +34,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
     DashboardComponent,
     NovoCadastroComponent,
     LivrosComponent,
+    DetailsComponent,
     AdicionarLivroComponent
    ],
   imports: [
