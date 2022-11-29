@@ -1,7 +1,15 @@
+table {
+    width: 100%;
+    font-weight: 600;
+    opacity: 0.6;
+}
+
 .container-dash {
     width: clamp(300px, 80%, 1400px);
     margin: 0 auto;
     padding-top: 40px;
+    
+    
 }
 
 .container h1{
@@ -25,12 +33,10 @@
     background-position: bottom;  
 }
 
-table {
-    width: 100%;
-}
+
 
 .table-container {
-    height: 67vh;
+    height: 70vh;
     overflow: auto;  
 }
 
@@ -46,3 +52,10 @@ table {
     bottom: 5px;
     color: rgb(244, 244, 244);
 }
+
+img {
+    cursor: pointer;
+}
+
+
+

@@ -1,4 +1,4 @@
-import { Emprestimo } from 'src/app/models/emprestimo';
+import { Livro } from './../../models/livro';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Component, Inject, OnInit } from '@angular/core';
 
@@ -10,7 +10,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 })
 export class DetailsComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public bibliotech: Emprestimo ) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public bibliotech: Livro ) { }
 
   ngOnInit(): void {
   }

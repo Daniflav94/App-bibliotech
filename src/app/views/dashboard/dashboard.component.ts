@@ -1,3 +1,5 @@
+import { DetailsComponent } from './../../componente/details/details.component';
+import { Livro } from './../../models/livro';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -13,7 +15,7 @@ import { NotificationService } from 'src/app/service/notification.service';
 export class DashboardComponent implements OnInit {
 
   displayedColumns = ['leitor', 'livro', 'dataEmprestimo', 'status', 'excluir', 'editar', 'capa'];
-  dataSource: Emprestimo[] = [];
+  dataSource: Livro[] = [];
 
   constructor(
     private emprestimoService: EmprestimosService,
@@ -36,6 +38,13 @@ export class DashboardComponent implements OnInit {
     this.emprestimoService.deleteEmprestimo(id).subscribe(response => {
       this.notification.Showmessage ("Emprestimo apagado");
       this.initializeTable();
+    });
+  }
+
+  public openDetails(livro: Livro): void {
+    this.dialog.open(DetailsComponent, {
+      width: "400px",
+      
     });
   }
 
