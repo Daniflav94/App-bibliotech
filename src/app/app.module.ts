@@ -6,20 +6,48 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './shared/material/material.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './views/login/login.component';
+import { HomeComponent } from './views/home/home.component';
+import { NovoEmprestimoComponent } from './views/novo-emprestimo/novo-emprestimo.component';
+import { HeaderComponent } from './componente/header/header.component';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditarEmprestimoComponent } from './views/editar-emprestimo/editar-emprestimo.component';
+import { DashboardComponent } from './views/dashboard/dashboard.component';
+import { NovoCadastroComponent } from './views/novo-cadastro/novo-cadastro.component';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { LivrosComponent } from './views/livros/livros.component';
+import { DetailsComponent } from './componente/details/details.component';
+import { AdicionarLivroComponent } from './views/adicionar-livro/adicionar-livro.component';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
 
 @NgModule({
   declarations: [
-    AppComponent
-    
-  ],
+    AppComponent,
+    HeaderComponent,
+    HomeComponent,
+    LoginComponent,
+    NovoEmprestimoComponent,
+    EditarEmprestimoComponent,
+    DashboardComponent,
+    NovoCadastroComponent,
+    LivrosComponent,
+    DetailsComponent,
+    AdicionarLivroComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    
+    BrowserAnimationsModule,
+    AngularFirestoreModule,
+    ReactiveFormsModule,
+    FormsModule,
+    AngularFireAuthModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

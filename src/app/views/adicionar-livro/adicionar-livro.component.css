@@ -1,0 +1,54 @@
+.forms{
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    justify-content: center;
+}
+.form-container{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 79vh;
+}
+.form-container h1{
+    font-size: 30px;
+    font-weight: 600;
+    color:#4c9fcf;
+    letter-spacing: 1.2px;
+    margin-bottom: 35px;
+}
+
+.botoes{
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.btn-form{
+    width: 48%;
+    transition: 0.4s;
+}
+
+<<<<<<< HEAD
+=======
+.upload-capa{
+    padding: 5px 20px;
+    border: 1px solid #BABABA;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top:10px;
+}
+
+.upload-capa::-webkit-file-upload-button{
+    display: none;
+}
+
+.file{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+
+>>>>>>> main
