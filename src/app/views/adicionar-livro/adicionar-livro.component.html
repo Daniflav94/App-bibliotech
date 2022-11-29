@@ -1,33 +1,36 @@
 <app-header></app-header>
-<div class="form-container">
-    <Form class="forms" [formGroup]="formLivro">
-        <label>Adicionar livro</label>
-        <mat-form-field appearance="outline">
-            <mat-label>Titulo</mat-label>
-            <input type="text" matInput formControlName="titulo">
-        </mat-form-field>
-
-        <mat-form-field appearance="outline">
-            <mat-label>Autor</mat-label>
-            <input type="text" matInput formControlName="autor">
-        </mat-form-field>
-
-        <mat-form-field appearance="outline">
-            <mat-label>Categoria</mat-label>
-            <input type="text" matInput formControlName="categoria">
-        </mat-form-field>
-
-        <mat-form-field appearance="outline">
-            <mat-label>Capa</mat-label>
-            <input type="text" matInput formControlName="capa">
-        </mat-form-field>
-
-        <mat-form-field appearance="outline">
-            <mat-label>ISBN</mat-label>
-            <input type="text" matInput formControlName="isbn">
-        </mat-form-field>
-        <div class="botoes">
-            <button class="btn-form" mat-raised-button color="primary">Adicionar </button>
-            <a class="btn-form" mat-raised-button routerLink="/livros">Cancelar</a>
-          </div>
-    </Form>
+<section class="container">
+    <div class="form-container">
+        <Form class="forms" [formGroup]="formLivro">
+            <h1>Adicionar Livro</h1>
+            <mat-form-field appearance="outline">
+                <mat-label>Titulo</mat-label>
+                <input type="text" matInput formControlName="titulo">
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline">
+                <mat-label>Autor</mat-label>
+                <input type="text" matInput formControlName="autor">
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline">
+                <mat-label>Categoria</mat-label>
+                <input type="text" matInput formControlName="categoria">
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline">
+                <mat-label>Capa</mat-label>
+                <input type="text" matInput formControlName="capa">
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline">
+                <mat-label>ISBN</mat-label>
+                <input type="text" matInput formControlName="isbn">
+            </mat-form-field>
+            <div class="botoes">
+                <button class="btn-form" mat-raised-button color="primary" (click)="criarNovoLivro()">Adicionar </button>
+                <a class="btn-form" mat-raised-button routerLink="/livros">Cancelar</a>
+              </div>
+        </Form>
+    </div>
+</section>

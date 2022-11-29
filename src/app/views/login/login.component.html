@@ -7,14 +7,15 @@
                 <img src="assets/icons/icone-google-colorido.svg" width="20px">
                 <p class="titulo-google">Fazer login com o Google</p>
             </button>
-            <form [formGroup]="credenciais" (ngSubmit)="loginEmailAndSenha()">
+            <form [formGroup]="credenciais">
                 <input type="email" placeholder="E-mail" formControlName ="email">
                 <span *ngIf="credenciais.get('email')?.errors?.['email'] && credenciais.get('email')?.touched"
                 [ngStyle]="{color:'red',fontSize:'12px'}">
                 *Usuario invalido
             </span>
                 <input type="password" placeholder="Senha" formControlName="senha">
-                <button class="btn" type="submit" routerLink="/dashboard">Entrar</button>
+                <button class="btn" type="submit" routerLink="/dashboard" (click)="
+                loginEmailAndSenha() ">Entrar</button>
             </form>
             <span>Ainda não é cadastrado? <a routerLink="/cadastrar">Cadastre-se</a></span>
         </div>

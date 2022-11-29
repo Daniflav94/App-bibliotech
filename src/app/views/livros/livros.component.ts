@@ -37,22 +37,8 @@ export class LivrosComponent implements OnInit {
     this.initializerTable()
   }
 
-adicionarNovoLivro(){
-  if(this.newBook.valid){
-    const novoLivro:Livro = this.newBook.value
-    this.colecaoLivros.criarListaDeLivros(novoLivro).subscribe(
-      (livro)=>{
-        this.notificacao.Showmessage("livro novo cadastrado com sucesso")
-        console.log(livro)
-      }
-    )
-  }else{
-    this.notificacao.Showmessage("erro ao cadastrar ")
-  }
 
-}
-
-initializerTable(){
+private initializerTable(): void{
   this.colecaoLivros.findAll().subscribe(
     (livros)=>{
       this.dataSource = livros

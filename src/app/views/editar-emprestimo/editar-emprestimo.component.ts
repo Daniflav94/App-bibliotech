@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Livro } from 'src/app/models/livro';
 import { EmprestimosService } from 'src/app/service/emprestimos.service';
+import { LivrosService } from 'src/app/service/livros.service';
 import { Emprestimo } from '../../models/emprestimo';
 import { NotificationService } from '../../service/notification.service';
 
@@ -13,16 +15,27 @@ import { NotificationService } from '../../service/notification.service';
 export class EditarEmprestimoComponent implements OnInit {
 
   public emprestimo!: Emprestimo
+  public listaLivros: Livro[] = []
 
   constructor(
     private emprestimoService: EmprestimosService,
     private route: ActivatedRoute,
     private notificationService: NotificationService,
-    private router: Router
+    private router: Router,
+    private listaLivrosService: LivrosService
 
   ) {  }
   ngOnInit(): void {
     this.inicializeArquivos()
+    this.listarLivrosDisponiveis()
+  }
+
+  public listarLivrosDisponiveis(): void{
+    this.listaLivrosService.listarLivrosDisponiveis().subscribe(
+      (resposta) => {
+        this.listaLivros = resposta
+      }
+    )
   }
 
   private inicializeArquivos(): void{
@@ -41,6 +54,6 @@ export class EditarEmprestimoComponent implements OnInit {
       })
     }else{
       this.notificationService.Showmessage("Nao conseguiu editar emprestimo.")
-      }
+    }
     }
  }

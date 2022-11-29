@@ -1,9 +1,9 @@
-
-   
 <app-header></app-header>
-<div class="container">
-    <h1>LIVROS</h1>
-
+<section class="container">
+    <div class="container-livros">
+        <h1>LIVROS</h1>
+        <h3>Lista de livros cadastrados no acervo</h3>
+        
     <section id="img" class="table-container  mat-elevation-z8" tabindex="0">
 
         <table mat-table [dataSource]="dataSource">
@@ -42,6 +42,7 @@
         </table>
     </section>
 </div>
+</section>
 <a mat-fab class="btn-new" color="primary" routerLink="./adicionar-livro">
     <i class="material-icons">add</i>
 </a>
