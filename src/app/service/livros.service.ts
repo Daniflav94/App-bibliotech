@@ -18,11 +18,11 @@ export class LivrosService {
     ) { }
 
     public criarListaDeLivros(livro:Livro):Observable<any>{
-      const promise = this.firestore.collection("livros").add({
+      this.livrosDisponiveis(livro)
+      const promise =this.firestore.collection("livros").add({
         uidUser:localStorage.getItem('uidUser'),
         ...livro  
       })
-      this.livrosDisponiveis(livro)
       return from(promise).pipe(
         catchError((error)=>{
         this.notificacao.Showmessage("erro ao adicionar o livro")

@@ -28,17 +28,31 @@
 
         <ng-container matColumnDef="excluir">
           <th mat-header-cell *matHeaderCellDef>Excluir</th>
+<<<<<<< HEAD
           <td mat-cell *matCellDef="let bibliotech"> <button mat-icon-button>
             <i class="material-icons">delete</i>
           </button></td>
          
+=======
+          <td mat-cell *matCellDef="let bibliotech">{{ bibliotech.excluir }}</td>
+          <button mat-icon-button>
+            <i class="material-icons">delete</i>
+          </button>
+>>>>>>> main
         </ng-container>
 
         <ng-container matColumnDef="editar">
           <th mat-header-cell *matHeaderCellDef>Editar</th>
+<<<<<<< HEAD
           <td mat-cell *matCellDef="let bibliotech">  <button mat-icon-button>
             <i class="material-icons" >edit</i>
           </button></td>
+=======
+          <td mat-cell *matCellDef="let bibliotech">{{ bibliotech.editar }}</td>
+          <button mat-icon-button>
+            <i class="material-icons" >edit</i>
+          </button>
+>>>>>>> main
         </ng-container>
 
         <ng-container matColumnDef="capa">
