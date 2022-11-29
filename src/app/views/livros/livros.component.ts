@@ -12,24 +12,24 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LivrosComponent implements OnInit {
 
-  newBook!:FormGroup
+  newBook!: FormGroup
   constructor(
-    private notificacao:NotificationService,
-    private colecaoLivros:LivrosService,
-    private roter:Router,
-    private fb :FormBuilder
-  ) { 
+    private notificacao: NotificationService,
+    private colecaoLivros: LivrosService,
+    private roter: Router,
+    private fb: FormBuilder
+  ) {
     this.newBook = fb.group({
-     
-      titulo:['',[Validators.required,Validators.maxLength(30)]],
-      categoria:['',[Validators.required]],
-      autor:['',[Validators.required]],
-      isbn:['',[Validators.required]],
-      capa:[''],
+
+      titulo: ['', [Validators.required, Validators.maxLength(30)]],
+      categoria: ['', [Validators.required]],
+      autor: ['', [Validators.required]],
+      isbn: ['', [Validators.required]],
+      capa: [''],
     })
   }
   displayedColumns = ['titulo', 'categoria', 'autor', 'isbn', 'excluir'];
-  dataSource:Livro[] = [];
+  dataSource: Livro[] = [];
 
 
 
@@ -38,19 +38,19 @@ export class LivrosComponent implements OnInit {
   }
 
 
-private initializerTable(): void{
-  this.colecaoLivros.findAll().subscribe(
-    (livros)=>{
-      this.dataSource = livros
-    }
-  )
-}
-excluirLivro(id:string){
-this.colecaoLivros.deleteLivro(id).subscribe(
-  (livro)=>{
-    this.notificacao.Showmessage(`livro ${livro.titulo} excluido com sucesso`)
-    this.initializerTable()
+  initializerTable() {
+    this.colecaoLivros.findAll().subscribe(
+      (livros) => {
+        this.dataSource = livros
+      }
+    )
   }
-)
-}
+  excluirLivro(id: string) {
+    this.colecaoLivros.deleteLivro(id).subscribe(
+      (livro) => {
+        this.notificacao.Showmessage('livro excluído com sucesso')
+        this.initializerTable()
+      }
+    )
+  }
 }

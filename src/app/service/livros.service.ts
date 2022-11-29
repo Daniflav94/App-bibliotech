@@ -28,7 +28,7 @@ export class LivrosService {
         this.notificacao.Showmessage("erro ao adicionar o livro")
         console.error(error)
         return EMPTY
-        })  
+        })
       );
     }
 
@@ -52,6 +52,7 @@ export class LivrosService {
     }
     deleteLivro(id:string):Observable<any>{
       const promise = this.firestore.collection("livros").doc(id).delete()
+      this.emprestarLivro(id) // vai deletar livro da coleção livros disponíveis
       return from(promise).pipe(
         catchError(error=>{
           this.notificacao.Showmessage("erro ao excluir")
@@ -72,7 +73,8 @@ export class LivrosService {
   }
 
     public listarLivrosDisponiveis():Observable<any>{
-      const promise = this.firestore.collection("livros-disponiveis").get()
+      const uidUser = localStorage.getItem('uidUser')
+      const promise = this.firestore.collection("livros-disponiveis",ref => ref.where('uidUser','==',uidUser)).get()
       return from(promise).pipe(
         map((response: any) => {
           return response.docs.map((doc: any) => {
