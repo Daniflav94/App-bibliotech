@@ -4,7 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Livro } from 'src/app/models/livro';
 import { EmprestimosService } from 'src/app/service/emprestimos.service';
 import { LivrosService } from 'src/app/service/livros.service';
+<<<<<<< HEAD
+=======
 import { UploadService } from 'src/app/service/upload.service';
+>>>>>>> main
 import { Emprestimo } from '../../models/emprestimo';
 import { NotificationService } from '../../service/notification.service';
 
@@ -17,7 +20,10 @@ export class EditarEmprestimoComponent implements OnInit {
 
   public emprestimo!: Emprestimo
   public listaLivros: Livro[] = []
+<<<<<<< HEAD
+=======
 
+>>>>>>> main
 
   constructor(
     private emprestimoService: EmprestimosService,
@@ -57,6 +63,8 @@ export class EditarEmprestimoComponent implements OnInit {
     }else{
       this.notificationService.Showmessage("Nao conseguiu editar emprestimo.")
     }
+<<<<<<< HEAD
+=======
     if(this.emprestimo.status == "devolvido"){
       this.listaLivrosService.livrosDisponiveis(this.emprestimo.livro).subscribe(
         (resposta) => {
@@ -64,5 +72,6 @@ export class EditarEmprestimoComponent implements OnInit {
         }
       )
     }
+>>>>>>> main
     }
  }

@@ -4,7 +4,10 @@ import { Router } from '@angular/router';
 import { Livro } from 'src/app/models/livro';
 import { LivrosService } from 'src/app/service/livros.service';
 import { NotificationService } from 'src/app/service/notification.service';
+<<<<<<< HEAD
+=======
 import { UploadService } from 'src/app/service/upload.service';
+>>>>>>> main
 
 @Component({
   selector: 'app-adicionar-livro',
@@ -18,13 +21,21 @@ export class AdicionarLivroComponent implements OnInit {
     fb: FormBuilder,
     private livrosService: LivrosService,
     private notificacao: NotificationService,
+<<<<<<< HEAD
+    private router: Router
+=======
     private router: Router,
     private uploadService: UploadService
+>>>>>>> main
   ) {
     this.formLivro = fb.group({
       titulo: ['', [Validators.required]],
       categoria: ['', [Validators.required]],
+<<<<<<< HEAD
+      capa: ['', [Validators.required]],
+=======
       capa: [''],
+>>>>>>> main
       autor: ['', [Validators.required]],
       isbn: ['', [Validators.required]]
     }) 
@@ -46,6 +57,11 @@ export class AdicionarLivroComponent implements OnInit {
           this.router.navigate(["/livros"])
         }
       )
+<<<<<<< HEAD
+    }
+  }
+
+=======
     }else {
       this.notificacao.Showmessage("Verifique os dados inseridos.")
     }
@@ -64,4 +80,5 @@ export class AdicionarLivroComponent implements OnInit {
   }
   
 
+>>>>>>> main
 }

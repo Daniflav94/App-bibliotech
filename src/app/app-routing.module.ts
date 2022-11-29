@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -35,26 +36,31 @@ const routes: Routes = [
   {
     path: 'emprestar',
     component: NovoEmprestimoComponent,
+    canActivate:[AuthGuard],
     title: "Emprestar | Bibliotech"
   },
   {
     path: 'editar/:id',
     component: EditarEmprestimoComponent,
+    canActivate:[AuthGuard],
     title: "Editar | Bibliotech"
   },
   {
     path: "dashboard",
     component: DashboardComponent,
+    canActivate:[AuthGuard],
     title: "Dashboard | Bibliotech"
   },
   {
     path: "livros",
     component: LivrosComponent,
+    canActivate:[AuthGuard],
     title: "Livros | Bibliotech"
   },
   {
     path: "livros/adicionar-livro",
     component: AdicionarLivroComponent,
+     canActivate:[AuthGuard],
     title: "Novo Livro | Bibliotech"
   },
 ];
