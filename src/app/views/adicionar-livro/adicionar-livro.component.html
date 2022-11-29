@@ -18,20 +18,12 @@
                 <input type="text" matInput formControlName="categoria">
             </mat-form-field>
     
-<<<<<<< HEAD
-            <mat-form-field appearance="outline">
-                <mat-label>Capa</mat-label>
-                <input type="text" matInput formControlName="capa">
-            </mat-form-field>
-    
-=======
             <div  class="file">
                 <label for="capa">Selecione uma capa</label> 
                 <input type="file" class="upload-capa" (change)="uploadFile($event)">
                 <mat-progress-bar mode="indeterminate" class="barra-progresso" *ngIf="isLoading"></mat-progress-bar>
             </div>
 
->>>>>>> main
             <mat-form-field appearance="outline">
                 <mat-label>ISBN</mat-label>
                 <input type="text" matInput formControlName="isbn">
