@@ -1,17 +1,18 @@
+
 <mat-toolbar class="header mat-elevation-z4">
   <span>
     <a>
       BIBLIOTECH
     </a>
   </span>
-  <span class="title-bibliotech">
-    <a>
-      <i class="material-icons">menu</i>
-    </a>
+  <span class="title">
+    <button mat-icon-button [matMenuTriggerFor]="menu">
+    <i class="material-icons">menu</i>
+    </button>
   </span>
   <mat-menu #menu="matMenu">
     <a mat-menu-item routerLink="/home">Home</a>
     <a mat-menu-item routerLink="/dashboard">Painel de Controle</a>
-    <a mat-menu-item id="logout" (click)="logout()">Sair <i class="material-icons">logout</i></a>
+    <a mat-menu-item id="logout" (click)="logout()">Sair<i class="material-icons">logout</i></a>
 </mat-menu>
 </mat-toolbar>
