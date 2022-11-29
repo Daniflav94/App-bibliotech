@@ -1,3 +1,4 @@
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -14,6 +15,7 @@ import { User } from 'src/app/models/user';
 export class LoginComponent implements OnInit {
  public credenciais!:FormGroup
   constructor(
+   
     private router:Router,
     private fb :FormBuilder,
     private autenticacao:AuthService,
@@ -33,7 +35,9 @@ this.credenciais = this.fb.group({
     this.autenticacao.LoginPeloGoogle().subscribe(
       (credentials)=>{
         this.notificacao.Showmessage("Bem vindo(a)")
-        this.router.navigate(["/login"])
+        this.router.navigate(["/home"])
+        const usuario = credentials.user;
+        localStorage.setItem("uidUser",usuario.uid)
       }
     )
 
@@ -43,7 +47,9 @@ this.credenciais = this.fb.group({
     this.autenticacao.LoginEmailAndSenha(user).subscribe(
       (credentials)=>{
         this.notificacao.Showmessage("Bem vinda(a)")
-        this.router.navigate(["/login"])
+        this.router.navigate(["/home"])
+        const usuario = credentials.user;
+        localStorage.setItem("uidUser",usuario.uid) 
       }
     )
 

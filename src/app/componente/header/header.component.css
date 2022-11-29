@@ -6,21 +6,44 @@ mat-toolbar {
   top: 0;
 }
 
+span{
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+}
+
 .header {
   display: flex;
   align-items: center;
 }
 
-.header a {
+.header .title {
+  padding-left: 10px;
+  text-decoration: none;
+  color: rgb(244, 244, 244);
+  font-weight: 600;
+  letter-spacing: 2.5px;
+}
+
+.header .title i {
+  margin-left: 10px;
+}
+
+.header .button {
    display: flex;
    align-items: center;
    text-decoration: none;
+   color:rgb(244, 244, 244);
 }
 
-.header .title-bibliotech {
-  padding-right: 10px;
+#logout {
+  display: flex;
+  align-items: center;
 }
 
-.header .title-bibliotech i {
+#logout i {
   margin-left: 10px;
 }
+
+
+
