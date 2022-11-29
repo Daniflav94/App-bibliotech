@@ -14,7 +14,9 @@
   justify-content: center;
   width: 100vw;
   height: 79vh;
+  padding-top: 105px;
 }
+
 .form-container h1{
     font-size: 30px;
     font-weight: 600;
