@@ -25,12 +25,10 @@ export class LivrosComponent implements OnInit {
       categoria: ['', [Validators.required]],
       autor: ['', [Validators.required]],
       isbn: ['', [Validators.required]],
-      capa: [''],
     })
   }
   displayedColumns = ['titulo', 'categoria', 'autor', 'isbn', 'excluir'];
   dataSource: Livro[] = [];
-
 
 
   ngOnInit(): void {

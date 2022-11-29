@@ -42,7 +42,7 @@
         <ng-container matColumnDef="capa">
           <th mat-header-cell *matHeaderCellDef>Capa</th>
           <td mat-cell *matCellDef="let bibliotech">
-            <img class="avatar" src="" alt="Capa" (click)="openDetails(bibliotech)">
+            <img class="avatar" src={{bibliotech.livro.capa}} alt="Capa" (click)="openDetails(bibliotech)">
           </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>

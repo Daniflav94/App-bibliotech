@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { EmprestimosService } from './../../service/emprestimos.service';
 import { Emprestimo } from './../../models/emprestimo';
 import { NotificationService } from 'src/app/service/notification.service';
+import { LivrosService } from 'src/app/service/livros.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,12 +16,14 @@ import { NotificationService } from 'src/app/service/notification.service';
 export class DashboardComponent implements OnInit {
 
   displayedColumns = ['leitor', 'livro', 'dataEmprestimo', 'status', 'excluir', 'editar', 'capa'];
-  dataSource: Livro[] = [];
+  dataSource: Emprestimo[] = [];
+  
 
   constructor(
     private emprestimoService: EmprestimosService,
     private notification: NotificationService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private listaLivrosService: LivrosService
   ) { }
 
   ngOnInit(): void {
@@ -31,6 +34,7 @@ export class DashboardComponent implements OnInit {
   private initializeTable(): void {
     this.emprestimoService.findAll().subscribe(emprestimo => {
       this.dataSource = emprestimo;
+      console.log(emprestimo)
     });
   }
 
@@ -41,9 +45,10 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  public openDetails(livro: Livro): void {
+  public openDetails(emprestimo: Emprestimo): void {
     this.dialog.open(DetailsComponent, {
       width: "400px",
+      data: emprestimo.livro
       
     });
   }
