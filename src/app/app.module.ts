@@ -20,6 +20,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { LivrosComponent } from './views/livros/livros.component';
 import { DetailsComponent } from './componente/details/details.component';
 import { AdicionarLivroComponent } from './views/adicionar-livro/adicionar-livro.component';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { AdicionarLivroComponent } from './views/adicionar-livro/adicionar-livro
     AngularFirestoreModule,
     ReactiveFormsModule,
     FormsModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

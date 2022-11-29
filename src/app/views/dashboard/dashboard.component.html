@@ -31,11 +31,13 @@
         </ng-container>
         <ng-container matColumnDef="editar">
           <th mat-header-cell *matHeaderCellDef>Editar</th>
+
           <td mat-cell *matCellDef="let bibliotech">
             <button mat-icon-button>
               <i class="material-icons" [routerLink]="['/editar', bibliotech.id]">edit</i>
             </button>
           </td>
+
         </ng-container>
         <ng-container matColumnDef="capa">
           <th mat-header-cell *matHeaderCellDef>Capa</th>
