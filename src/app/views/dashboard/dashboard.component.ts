@@ -33,16 +33,18 @@ export class DashboardComponent implements OnInit {
   }
 
   public deleteEmprestimo(id: string): void {
-    this.emprestimoService.deleteEmprestimo(id)..subscribe(response => {
+    this.emprestimoService.deleteEmprestimo(id).subscribe(response => {
       this.notification.Showmessage ("Emprestimo apagado");
       this.initializeTable();
     });
   }
 
-  public openDetails(emprestimo: Emprestimo): void {
+  // DIALOG
+
+ /*  public openDetails(emprestimo: Emprestimo): void {
     this.dialog.open(DetailsComponent, {
       width: "400px",
       data: emprestimo
     });
-  }
+  } */
 }

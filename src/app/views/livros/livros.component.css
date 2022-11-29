@@ -25,11 +25,18 @@ table {
     font-weight: 600;
     color:#4c9fcf;
     letter-spacing: 1.2px;
+    margin-bottom: 10px;
+}
+
+.container h3{
+    font-size: 20px;
+    color:#838383;
     margin-bottom: 30px;
 }
 
 .btn-new {
-    position: absolute;
+    position: fixed;
     right: 30px;
-    bottom: 20px;
+    bottom: 5px;
+    color: rgb(244, 244, 244);
 }

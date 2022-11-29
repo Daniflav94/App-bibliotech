@@ -1,7 +1,8 @@
-
+<app-header></app-header>
 <section class="container">
   <div class="container-dash">
     <h1>EMPRÉSTIMOS</h1>
+    <h3>Faça novos empréstimos e veja seu histórico na tabela abaixo</h3>
     <section id="img" class="table-container  mat-elevation-z8" tabindex="0">
       <table mat-table [dataSource]="dataSource">
 
@@ -12,7 +13,7 @@
 
         <ng-container matColumnDef="livro">
           <th mat-header-cell *matHeaderCellDef>Livro</th>
-          <td mat-cell *matCellDef="let bibliotech">{{ bibliotech.livro }} </td>
+          <td mat-cell *matCellDef="let bibliotech">{{ bibliotech.livro.titulo }} </td>
         </ng-container>
 
         <ng-container matColumnDef="dataEmprestimo">
@@ -36,7 +37,11 @@
         <ng-container matColumnDef="editar">
           <th mat-header-cell *matHeaderCellDef>Editar</th>
           <td mat-cell *matCellDef="let bibliotech">{{ bibliotech.editar }}</td>
+          <button mat-icon-button>
+            <i class="material-icons" >edit</i>
+          </button>
         </ng-container>
+
         <ng-container matColumnDef="capa">
           <th mat-header-cell *matHeaderCellDef>Capa</th>
           <td mat-cell *matCellDef="let bibliotech">
@@ -47,7 +52,7 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
     </section>
-    <a mat-fab class="btn-new" color="primary" routerLink="/emprestar">
+    <a mat-fab class="btn-new" color="primary" routerLink="/emprestar" matTooltip="Adicionar empréstimo">
       <i class="material-icons">add</i>
     </a>
     

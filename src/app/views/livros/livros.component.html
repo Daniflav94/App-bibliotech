@@ -2,6 +2,7 @@
 <section class="container">
     <div class="container-livros">
         <h1>LIVROS</h1>
+        <h3>Lista de livros cadastrados no acervo</h3>
         <section id="img" class="table-container  mat-elevation-z8" tabindex="0">
             <table mat-table [dataSource]="dataSource">
                 <ng-container matColumnDef="titulo">
@@ -37,7 +38,7 @@
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
         </section>
-        <a mat-fab class="btn-new" color="primary" routerLink="./adicionar-livro">
+        <a mat-fab class="btn-new" color="primary" routerLink="./adicionar-livro" matTooltip="Adicionar livro">
             <i class="material-icons">add</i>
         </a>
     </div>

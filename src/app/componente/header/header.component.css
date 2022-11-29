@@ -6,13 +6,23 @@ mat-toolbar {
   top: 0;
 }
 
+span{
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+}
+
 .header {
   display: flex;
   align-items: center;
 }
 
 .header .title {
-  padding-right: 10px;
+  padding-left: 10px;
+  text-decoration: none;
+  color: rgb(244, 244, 244);
+  font-weight: 600;
+  letter-spacing: 2.5px;
 }
 
 .header .title i {
@@ -23,6 +33,7 @@ mat-toolbar {
    display: flex;
    align-items: center;
    text-decoration: none;
+   color:rgb(244, 244, 244);
 }
 
 #logout {
@@ -34,11 +45,5 @@ mat-toolbar {
   margin-left: 10px;
 }
 
-#logout {
-  display: flex;
-  align-items: center;
-}
 
-#logout i {
-  margin-left: 10px;
-}
+
