@@ -1,11 +1,17 @@
+.container {
+    margin: 0;
+}
+
 .container-livros {
     width: clamp(300px, 80%, 1400px);
     margin: 0 auto;
-    padding-top: 40px;
+    padding-top: 80px;
 }
 
 table {
     width: 100%;
+    font-weight: 600;
+    opacity: 0.6;
 }
 
 #img{
@@ -37,6 +43,6 @@ table {
 .btn-new {
     position: fixed;
     right: 30px;
-    bottom: 5px;
+    bottom: 20px;
     color: rgb(244, 244, 244);
 }
