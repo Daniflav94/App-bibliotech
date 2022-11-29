@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable, from, catchError, EMPTY, map } from 'rxjs';
 import { Emprestimo } from '../models/emprestimo';
+import { LivrosService } from './livros.service';
 import { NotificationService } from './notification.service';
 
 @Injectable({
@@ -11,7 +12,8 @@ export class EmprestimosService {
 
   constructor(
     private firestore: AngularFirestore,
-    private notificationService: NotificationService
+    private notificationService: NotificationService,
+
   ) { }
 
 
@@ -70,6 +72,7 @@ export class EmprestimosService {
   }
 
   deleteEmprestimo(id:string):Observable<any>{
+    
     const promise = this.firestore.collection("emprestimos").doc(id).delete()
     return from(promise).pipe(
       catchError(error=>{

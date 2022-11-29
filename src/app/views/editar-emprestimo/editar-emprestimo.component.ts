@@ -47,21 +47,31 @@ export class EditarEmprestimoComponent implements OnInit {
     })
   }
 
+  mudarStatus(){
+    if(this.emprestimo.status == "pendente"){
+      this.emprestimo.status = "devolvido"
+    } else{
+      this.emprestimo.status = "pendente"
+    }
+    
+  }
+
   public editarEmprestimo(form: NgForm): void {
     if(form.valid){
       this.emprestimoService.editarEmprestimo(this.emprestimo).subscribe(()=>{
         this.notificationService.Showmessage("Emprestimo Editado.")
         this.router.navigate(["/dashboard"])
       })
+      if(this.emprestimo.status == "devolvido"){
+        this.listaLivrosService.livrosDisponiveis(this.emprestimo.livro).subscribe(
+          (resposta) => {
+            this.notificationService.Showmessage("Livro devolvido")
+          }
+        )
+      }
     }else{
       this.notificationService.Showmessage("Nao conseguiu editar emprestimo.")
     }
-    if(this.emprestimo.status == "devolvido"){
-      this.listaLivrosService.livrosDisponiveis(this.emprestimo.livro).subscribe(
-        (resposta) => {
-          this.notificationService.Showmessage("Livro devolvido")
-        }
-      )
-    }
+   
     }
  }

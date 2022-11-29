@@ -38,7 +38,8 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  public deleteEmprestimo(id: string): void {
+  public deleteEmprestimo(id: string, livro: Livro): void {
+    this.listaLivrosService.livrosDisponiveis(livro).subscribe()
     this.emprestimoService.deleteEmprestimo(id).subscribe(response => {
       this.notification.Showmessage ("Emprestimo apagado");
       this.initializeTable();
