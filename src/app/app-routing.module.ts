@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -7,6 +8,8 @@ import { NovoCadastroComponent } from './views/novo-cadastro/novo-cadastro.compo
 import { NovoEmprestimoComponent } from './views/novo-emprestimo/novo-emprestimo.component';
 import { EditarEmprestimoComponent } from './views/editar-emprestimo/editar-emprestimo.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
+import { LivrosComponent } from './views/livros/livros.component';
+import { AdicionarLivroComponent } from './views/adicionar-livro/adicionar-livro.component';
 
 const routes: Routes = [
   {
@@ -43,7 +46,17 @@ const routes: Routes = [
     path: "dashboard",
     component: DashboardComponent,
     title: "Dashboard | Bibliotech"
-  }
+  },
+  {
+    path: "livros",
+    component: LivrosComponent,
+    title: "Livros | Bibliotech"
+  },
+  {
+    path: "livros/adicionar-livro",
+    component: AdicionarLivroComponent,
+    title: "Novo Livro | Bibliotech"
+  },
 ];
 
 @NgModule({

@@ -1,1 +1,45 @@
-<p>livros works!</p>
+<app-header></app-header>
+<section class="container">
+    <div class="container-livros">
+        <h1>LIVROS</h1>
+        <section id="img" class="table-container  mat-elevation-z8" tabindex="0">
+            <table mat-table [dataSource]="dataSource">
+                <ng-container matColumnDef="titulo">
+                    <th mat-header-cell *matHeaderCellDef>Titulo</th>
+                    <td mat-cell *matCellDef="let bibliotech">{{bibliotech.titulo}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="autor">
+                    <th mat-header-cell *matHeaderCellDef>Autor</th>
+                    <td mat-cell *matCellDef="let bibliotech">{{bibliotech.autor}}</td>
+                </ng-container>
+    
+                <ng-container matColumnDef="categoria">
+                    <th mat-header-cell *matHeaderCellDef>Categoria</th>
+                    <td mat-cell *matCellDef="let bibliotech">{{bibliotech.categoria}} </td>
+                </ng-container>
+    
+                <ng-container matColumnDef="isbn">
+                    <th mat-header-cell *matHeaderCellDef>ISBN</th>
+                    <td mat-cell *matCellDef="let bibliotech">{{bibliotech.isbn}}</td>
+                </ng-container>
+    
+                <ng-container matColumnDef="excluir">
+                    <th mat-header-cell *matHeaderCellDef>Excluir</th>
+                    <td mat-cell *matCellDef="let bibliotech">
+                        <button mat-icon-button (click)="excluirLivro(bibliotech.id)" >
+                        <i class="material-icons">delete</i>
+                    </button></td>
+                    
+                  </ng-container>
+    
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </section>
+        <a mat-fab class="btn-new" color="primary" routerLink="./adicionar-livro">
+            <i class="material-icons">add</i>
+        </a>
+    </div>
+    
+</section>

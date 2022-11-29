@@ -1,9 +1,10 @@
 import { User } from 'src/app/models/user';
-import { Observable,from, catchError, EMPTY } from 'rxjs';
+import { Observable,from, catchError, EMPTY, tap } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { NotificationService } from './notification.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class AuthService {
 
   constructor(
     private Autenticacao: AngularFireAuth,
-     private notificacao:NotificationService) 
+     private notificacao:NotificationService
+     ) 
      { }
 
 //Login pelo google
@@ -38,6 +40,7 @@ export class AuthService {
         this.notificacao.Showmessage("Não foi possivel cadastrar o usuário, tente novamente")
         console.log(erro)
         return EMPTY
+      
       })
     )
   }
@@ -64,6 +67,13 @@ export class AuthService {
     logout() {
       const promise = this.Autenticacao.signOut();
       return from(promise);
+    }
+    isAuthenticated():Observable<any>{
+      return this.Autenticacao.authState.pipe(
+        tap((user)=>{
+           console.log(user)
+        })
+      )
     }
   }
 

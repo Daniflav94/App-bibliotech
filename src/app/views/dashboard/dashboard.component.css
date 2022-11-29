@@ -1,14 +1,22 @@
-.container {
-    width: clamp(300px, 90%, 1400px);
+.container-dash {
+    width: clamp(300px, 80%, 1400px);
     margin: 0 auto;
-    padding-top: 90px;
+    padding-top: 40px;
+}
+
+.container h1{
+    font-size: 30px;
+    font-weight: 600;
+    color:#4c9fcf;
+    letter-spacing: 1.2px;
+    margin-bottom: 30px;
 }
 
 #img { 
     background-image: url("/assets/images/dashboard-fundo1.png"); 
-    background-size: 70%;
+    background-size: 65%;
     background-repeat:no-repeat;
-    background-position: center;  
+    background-position: bottom;  
 }
 
 table {
@@ -16,7 +24,7 @@ table {
 }
 
 .table-container {
-    height: 70vh;
+    height: 67vh;
     overflow: auto;  
 }
 
@@ -30,5 +38,4 @@ table {
     position: absolute;
     right: 30px;
     bottom: 30px;
-    background-color: #517fdc;
 }

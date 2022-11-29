@@ -33,3 +33,12 @@ mat-toolbar {
 #logout i {
   margin-left: 10px;
 }
+
+#logout {
+  display: flex;
+  align-items: center;
+}
+
+#logout i {
+  margin-left: 10px;
+}

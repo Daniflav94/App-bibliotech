@@ -44,17 +44,18 @@ form{
     background: linear-gradient(114deg, rgba(66,165,245,1) 19%, rgba(66,165,245,1) 48%, rgba(107,192,250,1) 69%, rgba(107,192,250,1) 90%);
     width: 50%;
     height: 100%;
-    filter: drop-shadow(0 10px 3px rgba(25, 25, 25, 0.775))
+    filter: drop-shadow(0 10px 3px rgba(25, 25, 25, 0.775));
+    position: relative;
 }
 
 .btn-google{
     width: 100%;
-    background-color: #db2929;
-    color: #FFFFFF;
+    background-color: #ffffff;
+    color: black;
     height: 35px;
     border-radius: 5px;
     border: none;
-    box-shadow: 0 0 10px #7b7b7b;
+    box-shadow: 0 0 5px #7b7b7b;
     cursor: pointer;
     font-size: 13px;
     display: flex;
@@ -73,7 +74,7 @@ form{
     height: 35px;
     border-radius: 5px;
     border: none;
-    box-shadow: 0 0 10px #7b7b7b;
+    box-shadow: 0 0 5px #7b7b7b;
     cursor: pointer;
     font-size: 13px;
     font-weight: bold;
@@ -105,7 +106,8 @@ form{
 }
 
 .img-container img{
-    width: 48%;
+    width: 120%;
     position: absolute;
     right: 20px;
+    filter: drop-shadow(0 10px 3px rgba(25, 25, 25, 0.775))
 }

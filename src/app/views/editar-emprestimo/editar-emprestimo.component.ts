@@ -41,6 +41,6 @@ export class EditarEmprestimoComponent implements OnInit {
       })
     }else{
       this.notificationService.Showmessage("Nao conseguiu editar emprestimo.")
-      }
+    }
     }
  }

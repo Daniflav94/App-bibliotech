@@ -10,7 +10,7 @@
 .home-container h1 {
     width: 30%;
     line-height: 70px;
-    font-size: 65px;
+    font-size: 57px;
     position: absolute;
     left: 8%;
     top: 30%;
@@ -23,5 +23,6 @@
     top: 70%;
     width: 13%;
     height: 60px;
-    font-size: 25px;
+    font-size: 23px;
+    margin-top: 20px;
 }
