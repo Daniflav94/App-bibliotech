@@ -28,7 +28,7 @@ export class LivrosService {
         this.notificacao.Showmessage("erro ao adicionar o livro")
         console.error(error)
         return EMPTY
-        })  
+        })
       );
     }
 
