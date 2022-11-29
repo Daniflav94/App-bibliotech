@@ -62,7 +62,7 @@ initializerTable(){
 excluirLivro(id:string){
 this.colecaoLivros.deleteLivro(id).subscribe(
   (livro)=>{
-    this.notificacao.Showmessage(`livro ${livro.titulo} excluido com sucesso`)
+    this.notificacao.Showmessage('livro excluido com sucesso')
     this.initializerTable()
   }
 )
