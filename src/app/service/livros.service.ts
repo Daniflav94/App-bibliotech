@@ -52,6 +52,7 @@ export class LivrosService {
     }
     deleteLivro(id:string):Observable<any>{
       const promise = this.firestore.collection("livros").doc(id).delete()
+      this.emprestarLivro(id)
       return from(promise).pipe(
         catchError(error=>{
           this.notificacao.Showmessage("erro ao excluir")
