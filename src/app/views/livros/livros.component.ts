@@ -12,24 +12,24 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LivrosComponent implements OnInit {
 
-  newBook!:FormGroup
+  newBook!: FormGroup
   constructor(
-    private notificacao:NotificationService,
-    private colecaoLivros:LivrosService,
-    private roter:Router,
-    private fb :FormBuilder
-  ) { 
+    private notificacao: NotificationService,
+    private colecaoLivros: LivrosService,
+    private roter: Router,
+    private fb: FormBuilder
+  ) {
     this.newBook = fb.group({
-     
-      titulo:['',[Validators.required,Validators.maxLength(30)]],
-      categoria:['',[Validators.required]],
-      autor:['',[Validators.required]],
-      isbn:['',[Validators.required]],
-      capa:[''],
+
+      titulo: ['', [Validators.required, Validators.maxLength(30)]],
+      categoria: ['', [Validators.required]],
+      autor: ['', [Validators.required]],
+      isbn: ['', [Validators.required]],
+      capa: [''],
     })
   }
   displayedColumns = ['titulo', 'categoria', 'autor', 'isbn', 'excluir'];
-  dataSource:Livro[] = [];
+  dataSource: Livro[] = [];
 
 
 
@@ -37,34 +37,20 @@ export class LivrosComponent implements OnInit {
     this.initializerTable()
   }
 
-adicionarNovoLivro(){
-  if(this.newBook.valid){
-    const novoLivro:Livro = this.newBook.value
-    this.colecaoLivros.criarListaDeLivros(novoLivro).subscribe(
-      (livro)=>{
-        this.notificacao.Showmessage("livro novo cadastrado com sucesso")
-        console.log(livro)
+
+  initializerTable() {
+    this.colecaoLivros.findAll().subscribe(
+      (livros) => {
+        this.dataSource = livros
       }
     )
-  }else{
-    this.notificacao.Showmessage("erro ao cadastrar ")
   }
-
-}
-
-initializerTable(){
-  this.colecaoLivros.findAll().subscribe(
-    (livros)=>{
-      this.dataSource = livros
-    }
-  )
-}
-excluirLivro(id:string){
-this.colecaoLivros.deleteLivro(id).subscribe(
-  (livro)=>{
-    this.notificacao.Showmessage('livro excluido com sucesso')
-    this.initializerTable()
+  excluirLivro(id: string) {
+    this.colecaoLivros.deleteLivro(id).subscribe(
+      (livro) => {
+        this.notificacao.Showmessage('livro excluido com sucesso')
+        this.initializerTable()
+      }
+    )
   }
-)
-}
 }
