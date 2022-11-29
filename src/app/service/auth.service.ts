@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { GoogleAuthProvider } from 'firebase/auth';
 import { NotificationService } from './notification.service';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class AuthService {
 
   constructor(
     private Autenticacao: AngularFireAuth,
-     private notificacao:NotificationService) 
+     private notificacao:NotificationService
+     ) 
      { }
 
 //Login pelo google

@@ -1,47 +1,46 @@
-
-   
 <app-header></app-header>
-<div class="container">
-    <h1>LIVROS</h1>
+<section class="container">
+    <div class="container-livros">
+        <h1>LIVROS</h1>
+        <h3>Lista de livros cadastrados no acervo</h3>
+        <section id="img" class="table-container  mat-elevation-z8" tabindex="0">
+            <table mat-table [dataSource]="dataSource">
+                <ng-container matColumnDef="titulo">
+                    <th mat-header-cell *matHeaderCellDef>Titulo</th>
+                    <td mat-cell *matCellDef="let bibliotech">{{bibliotech.titulo}}</td>
+                </ng-container>
 
-    <section id="img" class="table-container  mat-elevation-z8" tabindex="0">
-
-        <table mat-table [dataSource]="dataSource">
-            
-            <ng-container matColumnDef="titulo">
-                <th mat-header-cell *matHeaderCellDef>titulo</th>
-                <td mat-cell *matCellDef="let bibliotech">{{bibliotech.titulo}}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="categoria">
-                <th mat-header-cell *matHeaderCellDef>categoria</th>
-                <td mat-cell *matCellDef="let bibliotech">{{bibliotech.categoria}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="autor">
-                <th mat-header-cell *matHeaderCellDef>autor</th>
-                <td mat-cell *matCellDef="let bibliotech">{{bibliotech.autor}}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="isbn">
-                <th mat-header-cell *matHeaderCellDef>isbn</th>
-                <td mat-cell *matCellDef="let bibliotech">{{bibliotech.isbn}}</td>
-            </ng-container>
-
-            <ng-container matColumnDef="excluir">
-                <th mat-header-cell *matHeaderCellDef>Excluir</th>
-                <td mat-cell *matCellDef="let bibliotech">
-                    <button mat-icon-button (click)="excluirLivro(bibliotech.id)" >
-                    <i class="material-icons">delete</i>
-                </button></td>
-                
-              </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        </table>
-    </section>
-</div>
-<a mat-fab class="btn-new" color="primary" routerLink="./adicionar-livro">
-    <i class="material-icons">add</i>
-</a>
+                <ng-container matColumnDef="autor">
+                    <th mat-header-cell *matHeaderCellDef>Autor</th>
+                    <td mat-cell *matCellDef="let bibliotech">{{bibliotech.autor}}</td>
+                </ng-container>
+    
+                <ng-container matColumnDef="categoria">
+                    <th mat-header-cell *matHeaderCellDef>Categoria</th>
+                    <td mat-cell *matCellDef="let bibliotech">{{bibliotech.categoria}} </td>
+                </ng-container>
+    
+                <ng-container matColumnDef="isbn">
+                    <th mat-header-cell *matHeaderCellDef>ISBN</th>
+                    <td mat-cell *matCellDef="let bibliotech">{{bibliotech.isbn}}</td>
+                </ng-container>
+    
+                <ng-container matColumnDef="excluir">
+                    <th mat-header-cell *matHeaderCellDef>Excluir</th>
+                    <td mat-cell *matCellDef="let bibliotech">
+                        <button mat-icon-button (click)="excluirLivro(bibliotech.id)" >
+                        <i class="material-icons">delete</i>
+                    </button></td>
+                    
+                  </ng-container>
+    
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+        </section>
+        <a mat-fab class="btn-new" color="primary" routerLink="./adicionar-livro" matTooltip="Adicionar livro">
+            <i class="material-icons">add</i>
+        </a>
+    </div>
+    
+</section>

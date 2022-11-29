@@ -1,5 +1,5 @@
 .home-container {  
-    height: 91%;
+    height: 100%;
     background-color: #E6E6E6;
     background-image: url("/assets/images/livro-home.jpg");
     background-size: 100%;
@@ -24,4 +24,6 @@
     width: 13%;
     height: 60px;
     font-size: 23px;
+    margin-top: 30px;
+    color: rgb(244, 244, 244);
 }
