@@ -17,6 +17,7 @@ export class EditarEmprestimoComponent implements OnInit {
 
   public emprestimo!: Emprestimo
   public listaLivros: Livro[] = []
+  public livroAtual!: Livro
 
   constructor(
     private emprestimoService: EmprestimosService,
@@ -56,11 +57,22 @@ export class EditarEmprestimoComponent implements OnInit {
     
   }
 
+  mudarLivro(livroAlterado: Livro){
+    this.livroAtual = this.emprestimo.livro
+    this.emprestimo.livro = livroAlterado
+
+  }
+
   public editarEmprestimo(form: NgForm): void {
     if(form.valid){
       this.emprestimoService.editarEmprestimo(this.emprestimo).subscribe(()=>{
         this.notificationService.Showmessage("Emprestimo Editado.")
         this.router.navigate(["/dashboard"])
+        this.listaLivrosService.livrosDisponiveis(this.livroAtual).subscribe(() => {
+          this.notificationService.Showmessage("O livro foi alterado.")
+        })
+        const idLivro = this.emprestimo.livro.id
+        this.listaLivrosService.emprestarLivro(idLivro)
       })
        if(this.emprestimo.status == "devolvido"){
       this.listaLivrosService.livrosDisponiveis(this.emprestimo.livro).subscribe(
