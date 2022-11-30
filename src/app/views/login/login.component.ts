@@ -46,7 +46,7 @@ this.credenciais = this.fb.group({
     const user:User =this.credenciais.value
     this.autenticacao.LoginEmailAndSenha(user).subscribe(
       (credentials)=>{
-        this.notificacao.Showmessage("Bem vinda(a)")
+        this.notificacao.Showmessage("Bem vindo(a)")
         this.router.navigate(["/home"])
         const usuario = credentials.user;
         localStorage.setItem("uidUser",usuario.uid) 
