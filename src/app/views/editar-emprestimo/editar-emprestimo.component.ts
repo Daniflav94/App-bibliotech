@@ -62,13 +62,13 @@ export class EditarEmprestimoComponent implements OnInit {
         this.notificationService.Showmessage("Emprestimo Editado.")
         this.router.navigate(["/dashboard"])
       })
-      if(this.emprestimo.status == "devolvido"){
-        this.listaLivrosService.livrosDisponiveis(this.emprestimo.livro).subscribe(
-          (resposta) => {
-            this.notificationService.Showmessage("Livro devolvido")
-          }
-        )
-      }
+       if(this.emprestimo.status == "devolvido"){
+      this.listaLivrosService.livrosDisponiveis(this.emprestimo.livro).subscribe(
+        (resposta) => {
+          this.notificationService.Showmessage("Livro devolvido")
+        }
+      )
+    }
     }else{
       this.notificationService.Showmessage("Nao conseguiu editar emprestimo.")
     }

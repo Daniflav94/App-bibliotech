@@ -35,3 +35,9 @@
   width: 48%;
   transition: 0.4s;
 }
+
+p{
+  font-size: 13px;
+  color: grey;
+  margin-bottom: 30px;
+}

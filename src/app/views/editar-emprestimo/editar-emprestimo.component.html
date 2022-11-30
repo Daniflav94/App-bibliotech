@@ -3,6 +3,7 @@
   <div class="form-container">
     <form class="forms" #formEdit="ngForm">
       <h1>Editar Empréstimo</h1>
+      
     <mat-form-field appearance="outline">
       <mat-label>Leitor</mat-label>
       <input type="text" name="leitor" matInput [(ngModel)]="emprestimo.leitor">
@@ -18,16 +19,17 @@
     <mat-form-field appearance="outline">
       <mat-label>Status atual: {{emprestimo.status}}</mat-label>
       <mat-select >
-          <mat-option value="PENDENTE">PENDENTE</mat-option>
-          <mat-option value="DEVOLVIDO" (onSelectionChange)= "mudarStatus()">DEVOLVIDO</mat-option>
+          <mat-option value="pendente">PENDENTE</mat-option>
+          <mat-option value="devolvido" (onSelectionChange)= "mudarStatus()">DEVOLVIDO</mat-option>
         </mat-select>
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Livro atual : {{emprestimo.livro.titulo}}</mat-label>
       <mat-select >
-          <mat-option [value]="livro" *ngFor="let livro of listaLivros" [(ngModel)]="emprestimo.livro">{{livro.titulo}}</mat-option>
+          <mat-option>{{emprestimo.livro.titulo}}</mat-option>  
         </mat-select>
     </mat-form-field>
+    <p>Obs: Caso queira alterar o livro, por favor exclua o registro de empréstimo e faça novamente.</p>
     <div class="botoes">
       <button class="btn-form" mat-raised-button color="primary" (click)="editarEmprestimo(formEdit)">Editar</button>
       <a class="btn-form" mat-raised-button routerLink="/dashboard">Cancelar</a>
