@@ -18,6 +18,8 @@ export class EditarEmprestimoComponent implements OnInit {
   public emprestimo!: Emprestimo
   public listaLivros: Livro[] = []
   public livroAtual!: Livro
+  public mudancaLivro: boolean = false
+  public mudancaStatus: boolean = false
 
   constructor(
     private emprestimoService: EmprestimosService,
@@ -26,13 +28,13 @@ export class EditarEmprestimoComponent implements OnInit {
     private router: Router,
     private listaLivrosService: LivrosService
 
-  ) {  }
+  ) { }
   ngOnInit(): void {
     this.inicializeArquivos()
     this.listarLivrosDisponiveis()
   }
 
-  public listarLivrosDisponiveis(): void{
+  public listarLivrosDisponiveis(): void {
     this.listaLivrosService.listarLivrosDisponiveis().subscribe(
       (resposta) => {
         this.listaLivros = resposta
@@ -40,50 +42,58 @@ export class EditarEmprestimoComponent implements OnInit {
     )
   }
 
-  private inicializeArquivos(): void{
+  private inicializeArquivos(): void {
     const id = this.route.snapshot.params["id"]
 
-    this.emprestimoService.editarEmprestimoById(id).subscribe(emprestimoRetornado =>{
+    this.emprestimoService.editarEmprestimoById(id).subscribe(emprestimoRetornado => {
       this.emprestimo = emprestimoRetornado
+      this.livroAtual = emprestimoRetornado.livro
     })
   }
 
-  mudarStatus(){
-    if(this.emprestimo.status == "pendente"){
+  mudarStatus() {
+    this.mudancaStatus = true
+    if (this.emprestimo.status == "pendente") {
       this.emprestimo.status = "devolvido"
-    } else{
+    } else if (this.emprestimo.status == "devolvido") {
       this.emprestimo.status = "pendente"
     }
-    
   }
 
-  mudarLivro(livroAlterado: Livro){
-    this.livroAtual = this.emprestimo.livro
+  mudarLivro(livroAlterado: Livro) {
+    this.mudancaLivro = true
     this.emprestimo.livro = livroAlterado
-
   }
 
   public editarEmprestimo(form: NgForm): void {
-    if(form.valid){
-      this.emprestimoService.editarEmprestimo(this.emprestimo).subscribe(()=>{
-        this.notificationService.Showmessage("Emprestimo Editado.")
-        this.router.navigate(["/dashboard"])
-        this.listaLivrosService.livrosDisponiveis(this.livroAtual).subscribe(() => {
-          this.notificationService.Showmessage("O livro foi alterado.")
+    if (form.valid) {
+      if (this.mudancaStatus == false && this.mudancaLivro == false) {
+        this.emprestimoService.editarEmprestimo(this.emprestimo).subscribe(() => {
+          this.notificationService.Showmessage("Emprestimo Editado.")
+          this.router.navigate(["/dashboard"])
         })
+      }else if (this.mudancaLivro == true && this.mudancaStatus == false) {
+        this.listaLivrosService.livrosDisponiveis(this.livroAtual).subscribe()
         const idLivro = this.emprestimo.livro.id
         this.listaLivrosService.emprestarLivro(idLivro)
-      })
-       if(this.emprestimo.status == "devolvido"){
-      this.listaLivrosService.livrosDisponiveis(this.emprestimo.livro).subscribe(
-        (resposta) => {
-          this.notificationService.Showmessage("Livro devolvido")
-        }
-      )
+        this.emprestimoService.editarEmprestimo(this.emprestimo).subscribe(() => {
+          this.notificationService.Showmessage("Emprestimo Editado.")
+          this.router.navigate(["/dashboard"])
+        })
+      }else if (this.mudancaLivro == false && this.mudancaStatus == true && this.emprestimo.status == "devolvido") {
+        this.listaLivrosService.livrosDisponiveis(this.emprestimo.livro).subscribe(
+          (resposta) => {
+            this.notificationService.Showmessage("Livro devolvido")
+          }
+        )
+        this.emprestimoService.editarEmprestimo(this.emprestimo).subscribe(() => {
+          this.notificationService.Showmessage("Emprestimo Editado.")
+          this.router.navigate(["/dashboard"])
+        })
+      }          
+    } else {
+      this.notificationService.Showmessage("Nao conseguiu editar empréstimo.")
     }
-    }else{
-      this.notificationService.Showmessage("Nao conseguiu editar emprestimo.")
-    }
-   
-    }
- }
+
+  }
+}
