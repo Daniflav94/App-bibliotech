@@ -29,7 +29,6 @@ export class NovoEmprestimoComponent implements OnInit {
       leitor: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       telefone: ['', [Validators.required]],
-      status: ['', [Validators.required]],
       livro: [{}, [Validators.required]]
     }) 
 
@@ -54,6 +53,7 @@ export class NovoEmprestimoComponent implements OnInit {
       const dataMiliSegundos = Date.now()
       const dataAtual = new Date(dataMiliSegundos)
       emprestimo.dataEmprestimo = dataAtual.toLocaleDateString()
+      emprestimo.status = "pendente"
       this.emprestimoService.criarEmprestimo(emprestimo).subscribe(
         (resposta) => {
           this.notificacao.Showmessage("Novo empréstimo cadastrado!")

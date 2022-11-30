@@ -16,12 +16,6 @@
         <input type="tel" matInput formControlName="telefone">
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Status</mat-label>
-        <mat-select formControlName="status">
-          <mat-option value="pendente">PENDENTE</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field appearance="outline">
         <mat-label>Livro</mat-label>
         <mat-select formControlName="livro">
           <mat-option [value]="livro" *ngFor="let livro of listaLivros">{{livro.titulo}}</mat-option>
