@@ -17,7 +17,7 @@
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Livro</mat-label>
-        <mat-select formControlName="livro">
+        <mat-select formControlName="livro" required>
           <mat-option [value]="livro" *ngFor="let livro of listaLivros">{{livro.titulo}}</mat-option>
         </mat-select>
       </mat-form-field>

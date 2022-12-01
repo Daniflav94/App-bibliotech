@@ -19,7 +19,6 @@ export class EditarEmprestimoComponent implements OnInit {
   public listaLivros: Livro[] = []
   public livroAtual!: Livro
   public mudancaLivro: boolean = false
-  public mudancaStatus: boolean = false
 
   constructor(
     private emprestimoService: EmprestimosService,
@@ -51,14 +50,6 @@ export class EditarEmprestimoComponent implements OnInit {
     })
   }
 
-  mudarStatus() {
-    this.mudancaStatus = true
-    if (this.emprestimo.status == "pendente") {
-      this.emprestimo.status = "devolvido"
-    } else if (this.emprestimo.status == "devolvido") {
-      this.emprestimo.status = "pendente"
-    }
-  }
 
   mudarLivro(livroAlterado: Livro) {
     this.mudancaLivro = true
@@ -67,31 +58,19 @@ export class EditarEmprestimoComponent implements OnInit {
 
   public editarEmprestimo(form: NgForm): void {
     if (form.valid) {
-      if (this.mudancaStatus == false && this.mudancaLivro == false) {
         this.emprestimoService.editarEmprestimo(this.emprestimo).subscribe(() => {
-          this.notificationService.Showmessage("Emprestimo Editado.")
+          this.notificationService.Showmessage("Empréstimo Editado.")
           this.router.navigate(["/dashboard"])
         })
-      }else if (this.mudancaLivro == true && this.mudancaStatus == false) {
+      }else if (this.mudancaLivro == true) {
         this.listaLivrosService.livrosDisponiveis(this.livroAtual).subscribe()
         const idLivro = this.emprestimo.livro.id
         this.listaLivrosService.emprestarLivro(idLivro)
         this.emprestimoService.editarEmprestimo(this.emprestimo).subscribe(() => {
-          this.notificationService.Showmessage("Emprestimo Editado.")
+          this.notificationService.Showmessage("Livro alterado.")
           this.router.navigate(["/dashboard"])
         })
-      }else if (this.mudancaLivro == false && this.mudancaStatus == true && this.emprestimo.status == "devolvido") {
-        this.listaLivrosService.livrosDisponiveis(this.emprestimo.livro).subscribe(
-          (resposta) => {
-            this.notificationService.Showmessage("Livro devolvido")
-          }
-        )
-        this.emprestimoService.editarEmprestimo(this.emprestimo).subscribe(() => {
-          this.notificationService.Showmessage("Emprestimo Editado.")
-          this.router.navigate(["/dashboard"])
-        })
-      }          
-    } else {
+      } else {
       this.notificationService.Showmessage("Nao conseguiu editar empréstimo.")
     }
 

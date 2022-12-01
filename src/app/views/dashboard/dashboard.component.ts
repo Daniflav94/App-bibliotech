@@ -7,6 +7,7 @@ import { EmprestimosService } from './../../service/emprestimos.service';
 import { Emprestimo } from './../../models/emprestimo';
 import { NotificationService } from 'src/app/service/notification.service';
 import { LivrosService } from 'src/app/service/livros.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,13 +18,13 @@ export class DashboardComponent implements OnInit {
 
   displayedColumns = ['leitor', 'livro', 'dataEmprestimo', 'status', 'excluir', 'editar', 'capa'];
   dataSource: Emprestimo[] = [];
-  
+  disableSelect = new FormControl(false);
 
   constructor(
     private emprestimoService: EmprestimosService,
     private notification: NotificationService,
     private dialog: MatDialog,
-    private listaLivrosService: LivrosService
+    private livrosService: LivrosService
   ) { }
 
   ngOnInit(): void {
@@ -34,32 +35,56 @@ export class DashboardComponent implements OnInit {
   private initializeTable(): void {
     this.emprestimoService.findAll().subscribe(emprestimo => {
       this.dataSource = emprestimo;
+
       console.log(emprestimo)
     });
   }
 
-  public deleteEmprestimo(id: string, livro: Livro): void {
-    this.listaLivrosService.livrosDisponiveis(livro).subscribe()
+  public deleteEmprestimo(id: string, livro: Livro, status: string): void {
+   if(status === 'pendente'){
+    this.livrosService.livrosDisponiveis(livro)
     this.emprestimoService.deleteEmprestimo(id).subscribe(response => {
-      this.notification.Showmessage ("Emprestimo apagado");
+      this.notification.Showmessage("Emprestimo apagado");
       this.initializeTable();
     });
+    }else if (status === 'devolvido'){
+      this.emprestimoService.deleteEmprestimo(id).subscribe(response => {
+        this.notification.Showmessage("Emprestimo apagado");
+        this.initializeTable();
+      });
+    }
   }
 
   public openDetails(emprestimo: Emprestimo): void {
     this.dialog.open(DetailsComponent, {
       width: "400px",
       data: emprestimo.livro
-      
+
     });
   }
 
+  public statusAlterado(idEmprestimo: string): void {
+    this.dataSource.forEach(emp => {
+      const emprestimo: Emprestimo = emp
+      if (emprestimo.id == idEmprestimo) {
+       emprestimo.status = "devolvido"
+       this.livrosService.livrosDisponiveis(emprestimo.livro)
+        this.emprestimoService.editarEmprestimo(emprestimo).subscribe(
+          () => {
+            this.notification.Showmessage("Status alterado para devolvido.")
+          }
+        )        
+      }
+    });
+  }
+
+
   // DIALOG
 
- /*  public openDetails(emprestimo: Emprestimo): void {
-    this.dialog.open(DetailsComponent, {
-      width: "400px",
-      data: emprestimo
-    });
-  } */
+  /*  public openDetails(emprestimo: Emprestimo): void {
+     this.dialog.open(DetailsComponent, {
+       width: "400px",
+       data: emprestimo
+     });
+   } */
 }

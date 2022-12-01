@@ -17,13 +17,6 @@
       <input type="tel" matInput name="telefone" [(ngModel)]="emprestimo.telefone">
     </mat-form-field>
     <mat-form-field appearance="outline">
-      <mat-label>Status atual: {{emprestimo.status}}</mat-label>
-      <mat-select >
-          <mat-option value="pendente">PENDENTE</mat-option>
-          <mat-option value="devolvido" (onSelectionChange)= "mudarStatus()">DEVOLVIDO</mat-option>
-        </mat-select>
-    </mat-form-field>
-    <mat-form-field appearance="outline">
       <mat-label>Livro atual : {{emprestimo.livro.titulo}}</mat-label>
       <mat-select >
           <mat-option [value]="livro" *ngFor="let livro of listaLivros" (onSelectionChange)= "mudarLivro(livro)">{{livro.titulo}}</mat-option>  

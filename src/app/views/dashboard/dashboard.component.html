@@ -14,17 +14,23 @@
           <td mat-cell *matCellDef="let bibliotech">{{ bibliotech.livro.titulo }} </td>
         </ng-container>
         <ng-container matColumnDef="dataEmprestimo">
-          <th class="th" mat-header-cell *matHeaderCellDef><b>Data de Empréstimo</b></th>
+          <th class="th" mat-header-cell *matHeaderCellDef ><b>Data de Empréstimo</b></th>
           <td mat-cell *matCellDef="let bibliotech">{{ bibliotech.dataEmprestimo }}</td>
         </ng-container>
         <ng-container matColumnDef="status">
           <th class="th" mat-header-cell *matHeaderCellDef><b>Status</b></th>
-          <td mat-cell *matCellDef="let bibliotech">{{ bibliotech.status }}</td>
+          <td mat-cell *matCellDef="let bibliotech">
+            <mat-select name="status" [value]="bibliotech.status" [disabled]="disableSelect.value" (selectionChange)="statusAlterado(bibliotech.id)" >
+              <mat-option value="pendente" disabled>pendente</mat-option>
+              <mat-option value="devolvido" >devolvido
+              </mat-option>
+            </mat-select>
+          </td>
         </ng-container>
         <ng-container matColumnDef="excluir">
           <th class="th" mat-header-cell *matHeaderCellDef><b>Excluir</b></th>
           <td mat-cell *matCellDef="let bibliotech">
-            <button mat-icon-button (click)="deleteEmprestimo(bibliotech.id, bibliotech.livro)">
+            <button mat-icon-button (click)="deleteEmprestimo(bibliotech.id, bibliotech.livro, bibliotech.status)">
               <i class="material-icons">delete</i>
             </button>
           </td>
