@@ -20,7 +20,7 @@
         <ng-container matColumnDef="status">
           <th class="th" mat-header-cell *matHeaderCellDef><b>Status</b></th>
           <td mat-cell *matCellDef="let bibliotech">
-            <mat-select name="status" [value]="bibliotech.status" [disabled]="disableSelect.value" (selectionChange)="statusAlterado(bibliotech.id)" >
+            <mat-select name="status" [value]="bibliotech.status" [disabled]="disableSelect.value" (selectionChange)="statusAlterado(bibliotech.id)" [ngClass]="{'red': bibliotech.status == 'pendente', 'green': bibliotech.status == 'devolvido'}" >
               <mat-option value="pendente" disabled>pendente</mat-option>
               <mat-option value="devolvido" >devolvido
               </mat-option>
@@ -48,7 +48,7 @@
         <ng-container matColumnDef="capa">
           <th class="th" mat-header-cell *matHeaderCellDef><b>Capa</b></th>
           <td mat-cell *matCellDef="let bibliotech">
-            <img class="avatar" src={{bibliotech.livro.capa}} alt="Capa" (click)="openDetails(bibliotech)">
+            <img class="avatar" src="{{bibliotech.livro.capa | semCapa}}" alt="Capa" (click)="openDetails(bibliotech)">
           </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>

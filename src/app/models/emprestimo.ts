@@ -7,7 +7,7 @@ export interface Emprestimo{
   status: string;
   livro: {
     autor: string,
-    capa?: string,
+    capa: string,
     categoria: string,
     id?: string,
     isbn: string,

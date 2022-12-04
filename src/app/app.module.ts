@@ -22,6 +22,7 @@ import { DetailsComponent } from './componente/details/details.component';
 import { AdicionarLivroComponent } from './views/adicionar-livro/adicionar-livro.component';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { SemCapaPipe } from './pipes/sem-capa.pipe';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 @NgModule({
@@ -49,7 +50,10 @@ import { SemCapaPipe } from './pipes/sem-capa.pipe';
     ReactiveFormsModule,
     FormsModule,
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    NgxMaskModule.forRoot({
+      dropSpecialCharacters: false
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

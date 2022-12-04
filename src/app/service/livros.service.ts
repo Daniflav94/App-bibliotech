@@ -5,6 +5,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Injectable } from '@angular/core';
 import {   EMPTY, from,  Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators'
+import { getStorage, ref, deleteObject } from "firebase/storage";
 
 @Injectable({
   providedIn: 'root'
@@ -50,9 +51,21 @@ export class LivrosService {
         })
       );
     }
-    deleteLivro(id:string):Observable<any>{
+    deleteLivro(id:string, capaNome: string):Observable<any>{
       const promise = this.firestore.collection("livros").doc(id).delete()
       this.emprestarLivro(id) // vai deletar livro da coleção livros disponíveis
+
+      // deletar capa do storage quando o livro for excluído
+      const storage = getStorage();
+      const capa = ref(storage, capaNome)
+      deleteObject(capa).then(() => {
+        this.notificacao.Showmessage("Excluído com sucesso!")
+      }).catch((error) => {
+        console.log(error)
+        this.notificacao.Showmessage("Erro ao excluir capa do livro.")
+      })
+
+
       return from(promise).pipe(
         catchError(error=>{
           this.notificacao.Showmessage("erro ao excluir")

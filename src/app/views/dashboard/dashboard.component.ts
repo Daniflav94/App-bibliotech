@@ -19,6 +19,7 @@ export class DashboardComponent implements OnInit {
   displayedColumns = ['leitor', 'livro', 'dataEmprestimo', 'status', 'excluir', 'editar', 'capa'];
   dataSource: Emprestimo[] = [];
   disableSelect = new FormControl(false);
+  corStatus: string = 'red'
 
   constructor(
     private emprestimoService: EmprestimosService,

@@ -43,8 +43,8 @@ export class LivrosComponent implements OnInit {
       }
     )
   }
-  excluirLivro(id: string) {
-    this.colecaoLivros.deleteLivro(id).subscribe(
+  excluirLivro(id: string, capa: string) {
+    this.colecaoLivros.deleteLivro(id, capa).subscribe(
       (livro) => {
         this.notificacao.Showmessage('livro excluído com sucesso')
         this.initializerTable()

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { map, Observable, startWith } from 'rxjs';
 import { Emprestimo } from 'src/app/models/emprestimo';
 import { Livro } from 'src/app/models/livro';
 import { EmprestimosService } from 'src/app/service/emprestimos.service';
@@ -16,7 +17,9 @@ export class NovoEmprestimoComponent implements OnInit {
 
   public formEmprestimo: FormGroup
   public listaLivros: Livro[] = []
-  public idLivro: string = ''
+  campoLivro = new FormControl('')
+  livro!: Livro
+  filteredOptions!: Observable<Livro[]>
 
   constructor(
     fb: FormBuilder,
@@ -29,13 +32,27 @@ export class NovoEmprestimoComponent implements OnInit {
       leitor: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       telefone: ['', [Validators.required]],
-      livro: [{}, [Validators.required]]
+      //livro: ['', [Validators.required]]
     }) 
 
   }  
 
   ngOnInit(): void {
     this.listarLivrosDisponiveis()
+    this.filteredOptions = this.campoLivro.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value || '')),
+    );
+  }
+
+  private _filter(value: string): Livro[] {
+    const filterValue = value.toLowerCase();
+
+    return this.listaLivros.filter(value => value.titulo.toLowerCase().includes(filterValue));
+  }
+
+  livroSelecionado(livro: Livro) {
+    this.livro = livro
   }
 
   public listarLivrosDisponiveis(): void{
@@ -49,7 +66,8 @@ export class NovoEmprestimoComponent implements OnInit {
   public criarEmprestimo(): void{
     if(this.formEmprestimo.valid){
       const emprestimo: Emprestimo = this.formEmprestimo.value
-      const idLivro = emprestimo.livro.id
+      emprestimo.livro = this.livro
+      const idlivro = this.livro.id
       const dataMiliSegundos = Date.now()
       const dataAtual = new Date(dataMiliSegundos)
       emprestimo.dataEmprestimo = dataAtual.toLocaleDateString()
@@ -60,7 +78,7 @@ export class NovoEmprestimoComponent implements OnInit {
           this.router.navigate(['/dashboard'])        
         }
       )
-      this.listaLivrosService.emprestarLivro(idLivro)
+      this.listaLivrosService.emprestarLivro(idlivro)
       
     } else {
       this.notificacao.Showmessage("Verifique os campos preenchidos e tente novamente.")

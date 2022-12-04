@@ -4,6 +4,6 @@ export interface Livro {
     categoria:string
     autor:string
     isbn:string
-    capa?:string
+    capa:string
 
 }

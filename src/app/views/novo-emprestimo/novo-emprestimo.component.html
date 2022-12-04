@@ -12,14 +12,25 @@
         <input type="email" matInput formControlName="email">
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Telefone</mat-label>
-        <input type="tel" matInput formControlName="telefone">
+        <mat-label>Telefone </mat-label>
+        <input required type="text" matInput placeholder="telefone" name="telefone" formControlName="telefone"
+        mask="(00)00000-0000">
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Livro</mat-label>
-        <mat-select formControlName="livro" required>
+        <!-- <mat-select formControlName="livro" required>
           <mat-option [value]="livro" *ngFor="let livro of listaLivros">{{livro.titulo}}</mat-option>
-        </mat-select>
+        </mat-select> -->
+        <input type="text" placeholder="Selecione um livro"
+        aria-label="Livro"
+        matInput
+        [formControl]="campoLivro"
+        [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let livro of filteredOptions | async" [value]="livro.titulo" (onSelectionChange)="livroSelecionado(livro)">
+            {{livro.titulo}}
+          </mat-option>
+        </mat-autocomplete>
       </mat-form-field>
       <div class="botoes">
         <button class="btn-form" mat-raised-button color="primary" (click)="criarEmprestimo()">Emprestar </button>
