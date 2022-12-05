@@ -18,9 +18,10 @@
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Livro</mat-label>
-        <mat-select formControlName="livro" required>
-          <mat-option [value]="livro" *ngFor="let livro of listaLivros">{{livro.titulo}}</mat-option>
-        </mat-select>
+        <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto" required>
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option  *ngFor="let livro of filteredOptions | async" [value]="livro" (onSelectionChange)="salvarLivro(livro)">{{livro.titulo}}</mat-option>
+        </mat-autocomplete>   
       </mat-form-field>
       <div class="botoes">
         <button class="btn-form" mat-raised-button color="primary" (click)="criarEmprestimo()">Emprestar </button>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { map, Observable, startWith } from 'rxjs';
 import { Emprestimo } from 'src/app/models/emprestimo';
 import { Livro } from 'src/app/models/livro';
 import { EmprestimosService } from 'src/app/service/emprestimos.service';
@@ -15,8 +16,10 @@ import { NotificationService } from 'src/app/service/notification.service';
 export class NovoEmprestimoComponent implements OnInit {
 
   public formEmprestimo: FormGroup
+  public myControl = new FormControl<string | Livro>('');
   public listaLivros: Livro[] = []
-  public idLivro: string = ''
+  public filteredOptions!: Observable<Livro[]>;
+  public livroSelecionado!: Livro
 
   constructor(
     fb: FormBuilder,
@@ -29,13 +32,33 @@ export class NovoEmprestimoComponent implements OnInit {
       leitor: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.email]],
       telefone: ['', [Validators.required]],
-      livro: [{}, [Validators.required]]
     }) 
 
   }  
 
   ngOnInit(): void {
     this.listarLivrosDisponiveis()
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => {
+        const name = typeof value === 'string' ? value : value?.titulo;
+        return name ? this._filter(name as string) : this.listaLivros.slice();
+      }),
+    );
+  }
+
+  public salvarLivro(livro: Livro){
+    this.livroSelecionado = livro
+  }
+
+  displayFn(livro: Livro): string {
+    return livro && livro.titulo ? livro.titulo : '';
+  }
+
+  private _filter(name: string): Livro[] {
+    const filterValue = name.toLowerCase();
+
+    return this.listaLivros.filter(option => option.titulo.toLowerCase().includes(filterValue));
   }
 
   public listarLivrosDisponiveis(): void{
@@ -49,7 +72,8 @@ export class NovoEmprestimoComponent implements OnInit {
   public criarEmprestimo(): void{
     if(this.formEmprestimo.valid){
       const emprestimo: Emprestimo = this.formEmprestimo.value
-      const idLivro = emprestimo.livro.id
+      emprestimo.livro = this.livroSelecionado
+      const idLivro = this.livroSelecionado.id
       const dataMiliSegundos = Date.now()
       const dataAtual = new Date(dataMiliSegundos)
       emprestimo.dataEmprestimo = dataAtual.toLocaleDateString()
