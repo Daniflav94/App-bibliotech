@@ -24,16 +24,16 @@ Para facilitar o controle das devolução dos livros, o cliente deseja que na ta
 O cliente deseja uma página intuitiva para criar um novo empréstimo, informando o nome do leitor, e-mail e telefone, deve informar também o status e o livro, por meio de um campo de seleção. A data de empréstimo deve ser gerada automaticamente, e deve corresponder a data que foi efetuado o empréstimo;
 Para tornar a aplicação segura, é desejado implementar autenticação para acessar os registros e manipular os dados. A autenticação deve ser realizada pela conta Google ou por e-mail e senha.
 
-
-![login](https://user-images.githubusercontent.com/99519903/203872554-92468294-81c3-4e56-b20f-16e62d3a57f8.jpg)
-![login2](https://user-images.githubusercontent.com/99519903/203872561-f7bd16f8-f79a-49f9-867e-d92819bf4f84.jpg)
-![home](https://user-images.githubusercontent.com/99519903/203872569-c6316e85-6ee2-46ba-b53f-af5cfcddf54b.jpg)
-![dashboard](https://user-images.githubusercontent.com/99519903/203872620-d90018a6-f143-4f9c-b159-07e40afbcbd3.jpg)
-![dialog](https://user-images.githubusercontent.com/99519903/203872632-65788746-0ad5-416a-be5c-f5932ebd3f9a.jpg)
-![novo-emprestimo](https://user-images.githubusercontent.com/99519903/203872657-ccfe493f-1219-4753-a926-324786907657.jpg)
-![editar-emprestimo](https://user-images.githubusercontent.com/99519903/203872665-136d5780-cf92-48ad-b64c-a37e72e161f9.jpg)
-![livros](https://user-images.githubusercontent.com/99519903/203872677-23c8d065-ef3c-49e4-8f40-cc54be0f99d0.jpg)
+## Imagens 
 
 
+![Captura de tela 2024-03-08 093318](https://github.com/Daniflav94/App-bibliotech/assets/99519903/679787db-3887-4621-9b53-8a3feb723f16)
 
+![Captura de tela 2024-03-08 092129](https://github.com/Daniflav94/App-bibliotech/assets/99519903/3e8a6969-3f51-4f02-b814-441ddd823ea5)
 
+![Captura de tela 2024-03-08 092708](https://github.com/Daniflav94/App-bibliotech/assets/99519903/6a031972-6344-462b-8db9-725f7d488e7e)
+![Captura de tela 2024-03-08 092821](https://github.com/Daniflav94/App-bibliotech/assets/99519903/da031a46-d57d-423d-af7e-4b9898c1084b)
+![Captura de tela 2024-03-08 092910](https://github.com/Daniflav94/App-bibliotech/assets/99519903/26929c39-e6d1-40fa-baa1-cdd08972363d)
+![Captura de tela 2024-03-08 093301](https://github.com/Daniflav94/App-bibliotech/assets/99519903/ceab1d69-71a9-443d-bddd-d7e24f6e85b8)
+![Captura de tela 2024-03-08 093125](https://github.com/Daniflav94/App-bibliotech/assets/99519903/77bc58ed-b13d-4517-a9cc-88929c914975)
+![Captura de tela 2024-03-08 093109](https://github.com/Daniflav94/App-bibliotech/assets/99519903/f4d3e20a-49dc-4c1a-8dea-512db0cf46c4)
