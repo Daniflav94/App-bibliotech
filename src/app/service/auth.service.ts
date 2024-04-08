@@ -15,7 +15,7 @@ export class AuthService {
   constructor(
     private Autenticacao: AngularFireAuth,
      private notificacao:NotificationService
-     ) 
+     )
      { }
 
 //Login pelo google
@@ -23,7 +23,7 @@ export class AuthService {
     const provider = new GoogleAuthProvider();
     const promise = this.Autenticacao.signInWithPopup(provider);
     return from(promise).pipe(
-      catchError(error =>{
+      catchError((error: any) =>{
         this.notificacao.Showmessage("Erro ao autenticar pelo google, tente novamente")
         console.error(error)
         return EMPTY
@@ -32,24 +32,24 @@ export class AuthService {
 
 
   }
-  //função de autenticação por login e senha 
+  //função de autenticação por login e senha
   createNewUserWithEmailAndSenha(user:User) {
     const promise = this.Autenticacao.createUserWithEmailAndPassword(user.email,user.senha)
     return from(promise).pipe(
-      catchError((erro)=>{
+      catchError((erro: any)=>{
         this.notificacao.Showmessage("Não foi possivel cadastrar o usuário, tente novamente")
         console.log(erro)
         return EMPTY
-      
+
       })
     )
   }
 
   public  LoginEmailAndSenha(user:User):Observable<any> {
-    
+
     const promise = this.Autenticacao.signInWithEmailAndPassword(user.email,user.senha)
     return from(promise).pipe(
-      catchError(error => {
+      catchError((error: { code: string; }) => {
         if(error.code == "auth/user-not-found"){
           this.notificacao.Showmessage("Usuário não cadastrado.");
         }
@@ -70,13 +70,13 @@ export class AuthService {
     }
     isAuthenticated():Observable<any>{
       return this.Autenticacao.authState.pipe(
-        tap((user)=>{
+        tap((user: any)=>{
            console.log(user)
         })
       )
     }
   }
 
-  
- 
+
+
 
